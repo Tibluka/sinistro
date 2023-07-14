@@ -125,7 +125,7 @@
         <div class="check-boxes">
             <div class="checkbox">
                 <label>
-                    <input class="checkbox-lg" value="true" formControlName="sinistradoAposentado" type="checkbox">
+                    <input class="checkbox-lg" value="true" (change)="getSinistradoAposentado()" formControlName="sinistradoAposentado" type="checkbox">
                     Sinistrado aposentado.
                 </label>
             </div>
@@ -150,56 +150,59 @@
 
             <div class="checkbox">
                 <label>
-                    <input class="checkbox-lg" type="checkbox" formControlName="sinistradoAfastado">
+                    <input class="checkbox-lg" type="checkbox" (change)="getSinistradoAfastado()"  formControlName="sinistradoAfastado">
                     Sinistrado afastado nos últimos 3 anos?
                 </label>
             </div>
-            <div *ngIf="deathForm.get('sinistradoAfastado').value == true" class="afastado">
-                <div class="form-item bordered inicioAfastamento label-active">
-                    <label for="inicioAfastamento">Início afastamento</label>
-                    <input type="date" formControlName="inicioAfastamento">
-                </div>
-                <div class="form-item bordered fimAfastamento label-active">
-                    <label for="fimAfastamento">Fim afastamento</label>
-                    <input type="date" formControlName="fimAfastamento">
-                </div>
-                    <div class="motivoAfastamento">
-                        <app-custom-multiple-select class="custom-select" [bordered]="true"
-                            [options]="motivoAfastamentoOptions" [label]="'Motivo'" [type]="'SELECT'"
-                            (selectOptionEmitter)="updateForm($event)">
-                        </app-custom-multiple-select>
+            <div  *ngIf="deathForm.get('sinistradoAfastado').value == true" >
+                <div class="afastado">
+                    <div class="form-item bordered inicioAfastamento label-active">
+                        <label for="inicioAfastamento">Início afastamento</label>
+                        <input type="date" formControlName="inicioAfastamento">
                     </div>
-                <div class="button-add">
-                    <img class="icon-margin" src="../../../../assets/icons/plus.svg" alt="">
-                    <span>Incluir</span>
+                    <div class="form-item bordered fimAfastamento label-active">
+                        <label for="fimAfastamento">Fim afastamento</label>
+                        <input type="date" formControlName="fimAfastamento">
+                    </div>
+                        <div class="motivoAfastamento">
+                            <app-custom-multiple-select class="custom-select" [bordered]="true"
+                                [options]="motivoAfastamentoOptions" [label]="'Motivo'" [type]="'SELECT'"
+                                (selectOptionEmitter)="updateForm($event)">
+                            </app-custom-multiple-select>
+                        </div>
+                    <div class="button-add">
+                        <img class="icon-margin" src="../../../../assets/icons/plus.svg" alt="">
+                        <span>Incluir</span>
+                    </div>
                 </div>
+                <table style="margin-top: 32px">
+                    <tr>
+                        <th class="d-flex align-items-center">
+                            <div>Início afastamento</div>
+                            <img class="img-icon" src="../../../assets/icons/arrow-down.svg" alt="">
+                        </th>
+                        <th class="d-flex align-items-center">
+                            <div>Fim afastamento</div>
+                            <img class="img-icon" src="../../../assets/icons/arrow-down.svg" alt="">
+                        </th>
+                        <th class="d-flex">Motivo</th>
+                        <th class="d-flex">Ações</th>
+                    </tr>
+                    <tr>
+                        <td>15/06/2022</td>
+                        <td>15/06/2022</td>
+                        <td>Lorem ipsum</td>
+                        <td><img src="../../../assets/icons/trash.svg" alt=""></td>
+                    </tr>
+                    <tr>
+                        <td>15/06/2022</td>
+                        <td>15/06/2022</td>
+                        <td>Lorem ipsum</td>
+                        <td><img src="../../../assets/icons/trash.svg" alt=""></td>
+                    </tr>
+                </table>
             </div>
-            <table style="margin-top: 48px">
-                <tr>
-                    <th class="d-flex align-items-center">
-                        <div>Início afastamento</div>
-                        <img class="img-icon" src="../../../assets/icons/arrow-down.svg" alt="">
-                    </th>
-                    <th class="d-flex align-items-center">
-                        <div>Fim afastamento</div>
-                        <img class="img-icon" src="../../../assets/icons/arrow-down.svg" alt="">
-                    </th>
-                    <th class="d-flex">Motivo</th>
-                    <th class="d-flex">Ações</th>
-                </tr>
-                <tr>
-                    <td>15/06/2022</td>
-                    <td>15/06/2022</td>
-                    <td>Lorem ipsum</td>
-                    <td><img src="../../../assets/icons/trash.svg" alt=""></td>
-                </tr>
-                <tr>
-                    <td>15/06/2022</td>
-                    <td>15/06/2022</td>
-                    <td>Lorem ipsum</td>
-                    <td><img src="../../../assets/icons/trash.svg" alt=""></td>
-                </tr>
-            </table>
+           
         </div>
 
         <div class="beneficiaries">
