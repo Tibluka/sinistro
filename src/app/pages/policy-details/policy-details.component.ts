@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { SuccessComponent } from 'src/app/components/success/success.component';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-policy-details',
@@ -19,14 +21,14 @@ export class PolicyDetailsComponent {
   nextStep: number = null;
   previousStep: number = null;
 
-  constructor() { }
+  constructor(private modalService: ModalService) { }
 
   ngOnInit(): void {
   }
 
   next() {
     if (this.step == 3) {
-      return
+      this.modalService.open(SuccessComponent)
     } else this.step += 1;
 
   }

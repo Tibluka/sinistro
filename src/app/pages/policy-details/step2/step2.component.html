@@ -34,24 +34,20 @@
                 <h5>Local da ocorrência</h5>
 
                 <div class="inputs">
-                    <div class="form-item bordered pais" [ngClass]="{'label-active': detailsForm.get('pais').value}">
-                        <label for="pais">País</label>
-                        <select formControlName="pais">
-                            <option [value]="'Brasil'"> Brasil </option>
-                        </select>
+                    <div class="pais">
+                        <app-custom-multiple-select class="custom-select" [bordered]="true" [options]="paisOptions"
+                            [label]="'País'" [type]="'SELECT'" (selectOptionEmitter)="updateForm($event)">
+                        </app-custom-multiple-select>
                     </div>
-                    <div class="form-item bordered uf" [ngClass]="{'label-active': detailsForm.get('uf').value}">
-                        <label for="uf">UF</label>
-                        <select formControlName="uf">
-                            <option [value]="'Brasil'"> Brasil </option>
-                        </select>
+                    <div class="uf">
+                        <app-custom-multiple-select class="custom-select" [bordered]="true" [options]="ufOptions"
+                            [label]="'UF'" [type]="'SELECT'" (selectOptionEmitter)="updateForm($event)">
+                        </app-custom-multiple-select>
                     </div>
-                    <div class="form-item bordered cidade"
-                        [ngClass]="{'label-active': detailsForm.get('cidade').value}">
-                        <label for="cidade">Cidade</label>
-                        <select formControlName="cidade">
-                            <option [value]="'Brasil'"> São José do Rio Preto </option>
-                        </select>
+                    <div class="cidade">
+                        <app-custom-multiple-select class="custom-select" [bordered]="true" [options]="cidadeOptions"
+                            [label]="'Cidade'" [type]="'SELECT'" (selectOptionEmitter)="updateForm($event)">
+                        </app-custom-multiple-select>
                     </div>
 
                 </div>
@@ -63,20 +59,20 @@
 
                     <div class="options">
                         <div class="form-check mb">
-                            <input required [value]="true" formControlName="acidenteRegistrado" class="form-check-input"
+                            <input required [value]="true" (change)="getAcidenteRegistrado()" formControlName="acidenteRegistrado" class="form-check-input"
                                 type="radio" id="acidenteRegistrado">
                             <label class="form-check-label ml" for="acidenteRegistrado">
                                 Sim </label>
                         </div>
                         <div class="form-check margin-icon">
-                            <input required [value]="false" formControlName="acidenteRegistrado"
+                            <input required [value]="false" (change)="getAcidenteRegistrado()" formControlName="acidenteRegistrado"
                                 class="form-check-input" type="radio" id="false">
                             <label class="form-check-label ml" for="false">
                                 Não </label>
                         </div>
                     </div>
                 </div>
-                <div class="radio-buttons">
+                <div *ngIf="detailsForm.get('acidenteRegistrado').value" class="radio-buttons">
                     <h5>De que forma o acidente foi registrado?</h5>
 
                     <div class="options">
@@ -108,20 +104,20 @@
     
                     <div class="options">
                         <div class="form-check mb">
-                            <input required [value]="true" formControlName="atendimentoMedico" class="form-check-input"
+                            <input required [value]="true" (change)="getAtendimentoMedico()" formControlName="atendimentoMedico" class="form-check-input"
                                 type="radio" id="atendimentoMedico">
                             <label class="form-check-label ml" for="atendimentoMedico">
                                 Sim </label>
                         </div>
                         <div class="form-check margin-icon">
-                            <input required [value]="false" formControlName="atendimentoMedico" class="form-check-input"
+                            <input required [value]="false" (change)="getAtendimentoMedico()" formControlName="atendimentoMedico" class="form-check-input"
                                 type="radio" id="false">
                             <label class="form-check-label ml" for="false">
                                 Não </label>
                         </div>
                     </div>
                 </div>
-                <div class="radio-buttons">
+                <div *ngIf="detailsForm.get('atendimentoMedico').value" class="radio-buttons">
                     <h5>Qual o local do atendimento?</h5>
     
                     <div class="form-item bordered localAtendimento"

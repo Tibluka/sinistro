@@ -13,17 +13,6 @@
                 <app-custom-multiple-select class="custom-select" [bordered]="true" [options]="ocurrenceOptions"
                     [label]="'Ocorrência'" [type]="'SELECT'" (selectOptionEmitter)="updateForm($event)">
                 </app-custom-multiple-select>
-
-                <!-- <div class="form-item bordered occurrence label-active">
-                    <label for="occurrence">Ocorrência</label>
-                    <select formControlName="occurrence" id="">
-                        <option value="'Acidente'">Acidente</option>
-                        <option value="'Doença'">Doença</option>
-                        <option value="'Morte natural'">Morte natural</option>
-                        <option value="'Morte acidental'">Morte acidental</option>
-                        <option value="'Outros'">Outros</option>
-                    </select>
-                </div> -->
             </div>
 
             <div *ngIf="searchForm.get('cpfCnpjCliente').value && searchForm.get('occurrence').value">
@@ -32,19 +21,22 @@
                     <div class="options">
                         <div class="inputs grid-template-areas">
 
-                            <div class="occurrence">
+                            <div *ngIf="searchForm.get('occurrence').value !== 'morte' && searchForm.get('occurrence').value !== 'morte_acidental'"
+                                class="occurrence">
                                 <app-custom-multiple-select class="custom-select" [bordered]="true"
                                     [options]="occurrenceTypeOptions" [label]="'O que está pleiteando?'"
                                     [type]="'SELECT'" (selectOptionEmitter)="updateForm($event)">
                                 </app-custom-multiple-select>
                             </div>
 
-                            <!--  <div class="form-item bordered occurrence label-active">
-                                <label for="occurrenceType">O que está pleiteando?</label>
-                                <select formControlName="occurrenceType" id="">
-                                    <option value="">D.I.T. (Diárias por Incapacidade Temporaria)</option>
-                                </select>
-                            </div> -->
+                            <div *ngIf="searchForm.get('occurrence').value == 'morte' || searchForm.get('occurrence').value == 'morte_acidental'"
+                                class="quemFaleceu">
+                                <app-custom-multiple-select class="custom-select" [bordered]="true"
+                                    [options]="quemFaleceuOptions" [label]="'Quem faleceu?'" [type]="'SELECT'"
+                                    (selectOptionEmitter)="updateForm($event)">
+                                </app-custom-multiple-select>
+                            </div>
+
                             <div class="form-item bordered occurrenceDate label-active">
                                 <label for="occurrenceDate">Data da ocorrência</label>
                                 <input type="date" formControlName="occurrenceDate">
@@ -66,7 +58,7 @@
 
             <!-- Results -->
 
-            <app-results [showResults]="showResults" *ngIf="showResults"></app-results>
+            <app-results [showResults]="showResults" [occurrence]="occurrence" *ngIf="showResults"></app-results>
 
         </div>
     </form>

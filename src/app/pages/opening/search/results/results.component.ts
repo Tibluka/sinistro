@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class ResultsComponent {
 
   @Input() showResults: boolean = false;
+  @Input() occurrence: string = '';
 
   constructor(private router: Router) { }
 
@@ -16,7 +17,9 @@ export class ResultsComponent {
   }
 
   select() {
-    this.router.navigate(['policy-details'])
+    if (this.occurrence == 'morte' || this.occurrence == 'morte_acidental') {
+      this.router.navigate(['death-policy-details'])
+    } else this.router.navigate(['policy-details'])
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CustomOption } from 'src/app/models/customOption';
 
 @Component({
   selector: 'app-step2',
@@ -14,14 +15,6 @@ export class Step2Component {
 
   step: number = 2;
 
-  totalDias: string = '';
-  inicioAfastamento: string = '';
-  cidade: string = '';
-  uf: string = '';
-  pais: string = '';
-  acidenteRegistrado: boolean = false;
-  atendimentoMedico: boolean = false;
-
   constructor(private router: Router) { }
 
   detailsForm: FormGroup = new FormGroup({
@@ -33,15 +26,29 @@ export class Step2Component {
     acidenteRegistrado: new FormControl(false, Validators.required),
     atendimentoMedico: new FormControl(false, Validators.required),
     description: new FormControl('', Validators.required),
-    localAtendimento: new FormControl(''),
-    formaAcidenteRegistrado: new FormControl(null)
+    localAtendimento: new FormControl('', Validators.required),
+    formaAcidenteRegistrado: new FormControl(null, Validators.required)
   })
 
+  paisOptions: Array<CustomOption> = [
+    new CustomOption(false, 'Brasil', 'brasil', 'pais'),
+  ];
+  ufOptions: Array<CustomOption> = [
+    new CustomOption(false, 'SP', 'sp', 'uf'),
+  ];
+  cidadeOptions: Array<CustomOption> = [
+    new CustomOption(false, 'São José do Rio Preto', 'sp', 'cidade'),
+  ];
+
   ngOnInit(): void {
+    this.getAcidenteRegistrado();
+    this.getAtendimentoMedico();
   }
 
   next() {
-    this.nextEmitter.emit();
+    if (this.detailsForm.invalid) {
+      alert('Formulário inválido.')
+    } else this.nextEmitter.emit();
   }
 
   previous() {
@@ -50,5 +57,25 @@ export class Step2Component {
 
   cancel() {
     this.router.navigate(['opening'])
+  }
+
+  getAcidenteRegistrado() {
+    if(this.detailsForm.get('acidenteRegistrado').value == false) {
+      this.detailsForm.get('formaAcidenteRegistrado').disable();      
+    } else {
+      this.detailsForm.get('formaAcidenteRegistrado').enable();      
+    }
+  }
+
+  getAtendimentoMedico() {
+    if(this.detailsForm.get('atendimentoMedico').value == false) {
+      this.detailsForm.get('localAtendimento').disable();      
+    } else {
+      this.detailsForm.get('localAtendimento').enable();      
+    }
+  }
+
+  updateForm(customOption: CustomOption) {
+    this.detailsForm.get(customOption.formControlName).setValue(customOption.value);
   }
 }

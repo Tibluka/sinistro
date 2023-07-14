@@ -162,6 +162,9 @@ main {
         .conta {
             min-width: 287px;
         }
+        .banco, .agencia, .tipoConta {
+            min-width: 185px;
+        }
     }
 
     .buttons {

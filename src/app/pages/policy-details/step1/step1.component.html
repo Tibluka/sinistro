@@ -32,7 +32,7 @@
                     [ngClass]="{'label-active': acidenteForm.get('profissao').value}">
                     <label for="profissao">Profissão</label>
                     <input [disabled]="acidenteForm.get('seguradoDesempregado').value === true" type="text"
-                        mask="000.000.000-00||00.000.000/0000-00" formControlName="profissao">
+                        formControlName="profissao">
                 </div>
                 <div class="form-item bordered telefone"
                     [ngClass]="{'label-active': acidenteForm.get('telefone').value}">
@@ -41,7 +41,7 @@
                 </div>
                 <div class="form-item bordered email" [ngClass]="{'label-active': acidenteForm.get('email').value}">
                     <label for="email">E-mail</label>
-                    <input type="text" mask="000.000.000-00||00.000.000/0000-00" formControlName="email">
+                    <input type="text" formControlName="email">
                 </div>
             </div>
 
@@ -58,14 +58,15 @@
 
                 <div class="options">
                     <div class="form-check">
-                        <input required [value]="true" formControlName="possuiEnderecoComercial"
-                            class="form-check-input" type="radio" id="possuiEnderecoComercial">
+                        <input required [value]="true" (change)="getEnderecoComercial()"
+                            formControlName="possuiEnderecoComercial" class="form-check-input" type="radio"
+                            id="possuiEnderecoComercial">
                         <label class="form-check-label ml" for="possuiEnderecoComercial">
                             Sim </label>
                     </div>
                     <div class="form-check margin-icon ml">
-                        <input required [value]="false" formControlName="possuiEnderecoComercial"
-                            class="form-check-input" type="radio" id="false">
+                        <input required [value]="false" (change)="getEnderecoComercial()"
+                            formControlName="possuiEnderecoComercial" class="form-check-input" type="radio" id="false">
                         <label class="form-check-label ml" for="false">
                             Não </label>
                     </div>
@@ -101,13 +102,14 @@
                             <input type="text" formControlName="bairro">
                         </div>
                         <div class="uf">
-                            <app-custom-multiple-select class="custom-select" [options]="uf" [type]="'SELECT'"
-                                [label]="'UF'" (selectOptionEmitter)="optionSelected($event)">
+                            <app-custom-multiple-select class="custom-select" [bordered]="true" [options]="ufOptions"
+                                [label]="'UF'" [type]="'SELECT'" (selectOptionEmitter)="updateForm($event)">
                             </app-custom-multiple-select>
                         </div>
                         <div class="cidade">
-                            <app-custom-multiple-select class="custom-select" [options]="cidade" [type]="'SELECT'"
-                                [label]="'Cidade'" (selectOptionEmitter)="optionSelected($event)">
+                            <app-custom-multiple-select class="custom-select" [bordered]="true"
+                                [options]="cidadeOptions" [label]="'Cidade'" [type]="'SELECT'"
+                                (selectOptionEmitter)="updateForm($event)">
                             </app-custom-multiple-select>
                         </div>
                         <div class="form-item bordered complemento"
@@ -177,27 +179,23 @@
         <div class="payment">
             <h5>Dados para pagamento</h5>
             <div class="inputs">
-                <div class="form-item bordered banco" [ngClass]="{'label-active': acidenteForm.get('banco').value}">
-                    <label for="banco">Banco</label>
-                    <select formControlName="banco">
-                        <option [value]=""> 077 - Inter </option>
-                    </select>
+                <div class="banco">
+                    <app-custom-multiple-select class="custom-select" [bordered]="true" [options]="bancoOptions"
+                        [label]="'Banco'" [type]="'SELECT'" (selectOptionEmitter)="updateForm($event)">
+                    </app-custom-multiple-select>
                 </div>
                 <div class="form-item bordered agencia" [ngClass]="{'label-active': acidenteForm.get('agencia').value}">
                     <label for="agencia">Agência</label>
-                    <input type="text" mask="000.000.000-00||00.000.000/0000-00" formControlName="agencia">
+                    <input type="text" formControlName="agencia">
                 </div>
                 <div class="form-item bordered conta" [ngClass]="{'label-active': acidenteForm.get('conta').value}">
                     <label for="conta">Conta</label>
-                    <input type="text" mask="000.000.000-00||00.000.000/0000-00" formControlName="conta">
+                    <input type="text" formControlName="conta">
                 </div>
-                <div class="form-item bordered tipoConta"
-                    [ngClass]="{'label-active': acidenteForm.get('tipoConta').value}">
-                    <label for="tipoConta">Tipo de conta</label>
-                    <select formControlName="tipoConta">
-                        <option [value]=""> Conta Corrente </option>
-                        <option [value]=""> Conta Poupança </option>
-                    </select>
+                <div class="tipoConta">
+                    <app-custom-multiple-select class="custom-select" [bordered]="true" [options]="tipoContaOptions"
+                        [label]="'Tipo de conta'" [type]="'SELECT'" (selectOptionEmitter)="updateForm($event)">
+                    </app-custom-multiple-select>
                 </div>
             </div>
         </div>
