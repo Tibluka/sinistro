@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ModalService } from 'src/app/services/modal.service';
 import { DocumentsComponent } from '../documents/documents.component';
 import { CustomOption } from 'src/app/models/customOption';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-search',
@@ -12,17 +13,19 @@ export class SearchComponent {
 
   @Input() showResults: boolean = false;
 
-  cpfCnpjCliente: string = '';
-  occurrence: string = '';
-  occurrenceDate: any;
-  occurrenceType: any;
+  searchForm: FormGroup = new FormGroup({
+    cpfCnpjCliente: new FormControl('', Validators.required),
+    occurrence: new FormControl('', Validators.required),
+    occurrenceType: new FormControl('', Validators.required),
+    occurrenceDate: new FormControl('', Validators.required)
+  })
 
-  occurrenceOptions = [
-    new CustomOption(false, 'Acidente', ''),
-    new CustomOption(false, 'Doença', ''),
-    new CustomOption(false, 'Morte natural', ''),
-    new CustomOption(false, 'Morte acidental', ''),
-    new CustomOption(false, 'Outros', '')];
+  options = [
+    new CustomOption(false, 'Acidente', 'acidente'), 
+  new CustomOption(false, 'Doença', 'doenca' ), 
+  new CustomOption(false, 'Morte natural', 'morte'), 
+  new CustomOption(false, 'Morte acidental', 'morte_acidental'), 
+  new CustomOption(false, 'Outros', 'outros')];
 
   constructor(private modalService: ModalService) { }
 
@@ -40,7 +43,7 @@ export class SearchComponent {
   search() {
     this.showResults = true;
   }
-
+  
   optionSelected(customOption: CustomOption) {
     console.log(customOption);
 

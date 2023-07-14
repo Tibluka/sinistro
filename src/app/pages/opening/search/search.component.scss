@@ -11,6 +11,7 @@ main {
                 justify-content: space-between;
             }
         }
+
         .info {
             display: flex;
             align-items: center;
@@ -19,6 +20,7 @@ main {
             color: var(--primary);
             cursor: pointer;
         }
+
         .inputs {
             margin-bottom: 32px;
             display: flex;
@@ -27,7 +29,10 @@ main {
                 min-width: 285px;
             }
 
-            .occurrence,
+            .occurrence {
+                min-width: 386px;
+            }
+
             .occurrenceDate {
                 min-width: 183px;
             }
@@ -48,6 +53,7 @@ main {
         }
 
     }
+
     .custom-select {
         width: 300px;
     }

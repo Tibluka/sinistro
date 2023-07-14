@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { OpeningComponent } from './opening.component';
 import { RouterModule } from '@angular/router';
 import { AlertModule } from 'src/app/components/alert/alert.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskDirective, provideEnvironmentNgxMask } from 'ngx-mask';
 import { ResultsComponent } from './search/results/results.component';
 import { DocumentsComponent } from './documents/documents.component';
@@ -17,11 +17,13 @@ import { CustomMultipleSelectModule } from 'src/app/components/custom-multiple-s
     OpeningComponent,
     ResultsComponent,
     DocumentsComponent,
-    SearchComponent  ],
+    SearchComponent
+  ],
   imports: [
     CommonModule,
     AlertModule,
     CustomMultipleSelectModule,
+    ReactiveFormsModule,
     FormsModule,
     NgxMaskDirective,
     RouterModule.forChild([
