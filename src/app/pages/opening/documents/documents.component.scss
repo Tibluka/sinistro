@@ -1,0 +1,41 @@
+main {
+    .close-icon {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        margin-top: 24px;
+    }
+
+    h1 {
+        margin-bottom: 68px;
+    }
+
+    h4 {
+        margin-bottom: 16px;
+    }
+
+    img {
+        cursor: pointer;
+    }
+
+    .icon-margin-r {
+        margin-right: 4px;
+    }
+
+    .description {
+        font-size: 14px;
+        color: var(--neutras-black-65);
+        font-weight: 400;
+        margin-bottom: 16px;
+    }
+
+    .mandatory {
+        color: #FF5A40;
+    }
+
+    .list {
+        color: #404040;
+        font-size: 14px;
+        font-weight: 400;
+    }
+}

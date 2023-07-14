@@ -1,0 +1,42 @@
+<main>
+    <div class="header">
+        <div class="title-tag">
+            <h1>Aviso de Sinistro - Vida</h1>
+            <div class="tag">Acidente</div>
+        </div>
+
+        <div class="help">
+            <img class="icon-margin" src="../../../assets/icons/help.svg" alt="">
+            <div>Tutorial</div>
+        </div>
+    </div>
+
+    <div class="step-component">
+        <div class="step-description">
+            <div> <b>{{step}} de 3 - </b> Dados do segurado </div>
+            <div class="next-stage">Próximo passo: Detalhes da ocorrência</div>
+        </div>
+
+        <div class="steps">
+            <div class="step"
+                [ngClass]="{'selected': checkStep() == 'step1', 'previous-step': checkStep() == 'step2' || checkStep() == 'step3'}">
+            </div>
+            <div class="step"
+                [ngClass]="{'selected': checkStep() == 'step2', 'previous-step': checkStep() == 'step3', 'next-step': checkStep() == 'step1'}">
+            </div>
+            <div class="step"
+                [ngClass]="{'selected': checkStep() == 'step3', 'next-step': checkStep() == 'step2' || checkStep() == 'step1'}">
+            </div>
+        </div>
+    </div>
+
+    <div class="steps">
+        <app-step1 [ngClass]="{'hidden': step !== 1}" (nextEmitter)="next()" (previousEmitter)="previous()"></app-step1>
+        <app-step2 [ngClass]="{'hidden': step !== 2}" (nextEmitter)="next()" (previousEmitter)="previous()"></app-step2>
+        <app-step3 [ngClass]="{'hidden': step !== 3}" (nextEmitter)="next()" (previousEmitter)="previous()"></app-step3>
+
+    </div>
+
+
+
+</main>

@@ -1,0 +1,19 @@
+main {
+    h1 {
+        margin: 16px 0 32px 0;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 36px; /* 112.5% */
+        letter-spacing: 0.48px;
+    }
+
+    .messages {
+        .secondary-btn {
+            img {
+                margin-right: 8px;
+            }
+            margin-bottom: 8px;
+        }
+    }
+}

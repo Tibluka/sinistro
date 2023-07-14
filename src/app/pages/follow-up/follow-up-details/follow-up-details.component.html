@@ -1,0 +1,36 @@
+<main>
+    <div class="header">
+        <div class="title-with-description">
+            <h1>Sinistro N {{incident}}</h1>
+            <div class="subtitle">
+                <div class="status analysis">Em análise</div>
+                <div class="menu-items">
+                    <div class="messages" (click)="openMessagesComponent()">
+                        <img src="../../../../assets/icons/message-icon.svg" alt="">
+                        <span>Mensagens (1)</span>
+                    </div>
+                    <div class="history" (click)="openHistoryComponent()">
+                        <img src="../../../../assets/icons/history-icon.svg" alt="">
+                        <span>Histórico</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <div class="tab" *ngFor="let tab of tabs" (click)="changeTab(tab)"
+            [ngClass]="{'tab-active': tab.id === tabSelected}">
+            <h2>{{tab.description}}</h2>
+        </div>
+    </div>
+
+
+    <div class="dashboard-content-cards">
+        <container-element [ngSwitch]="tabSelected">
+            <app-incident-details *ngSwitchCase="0"></app-incident-details>
+            <app-pending-documents *ngSwitchCase="1"></app-pending-documents>
+        </container-element>
+    </div>
+
+</main>

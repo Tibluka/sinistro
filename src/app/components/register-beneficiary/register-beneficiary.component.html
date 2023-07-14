@@ -1,0 +1,80 @@
+<main>
+
+    <div class="register">
+        <div class="header">
+            <h3>Cadastro de beneficiário</h3>
+            <img (click)="close()" src="../../../assets/icons/close.svg" alt="">
+        </div>
+
+        <div class="inputs">
+            <div class="form-item bordered nomeCompleto" [ngClass]="{'label-active': nomeCompleto}">
+                <label for="nomeCompleto">Nome Completo</label>
+                <input type="text" [(ngModel)]="nomeCompleto" name="nomeCompleto">
+            </div>
+            <div class="side-to-side margin-t margin-b">
+                <div class="form-item bordered dataDeNascimento label-active">
+                    <label for="dataDeNascimento">Data de Nascimento</label>
+                    <input type="date" [(ngModel)]="dataDeNascimento" name="dataDeNascimento">
+                </div>
+                <div class="form-item bordered cpfCnpj" [ngClass]="{'label-active': cpfCnpj}">
+                    <label for="cpfCnpj">CPF/CNPJ</label>
+                    <input type="text" mask="000.000.000-00||00.000.000/0000-00" [(ngModel)]="cpfCnpj" name="cpfCnpj">
+                </div>
+            </div>
+            <app-custom-multiple-select class="custom-select" [options]="options" [type]="'SELECT'"
+                [label]="'Relacionamento'" (selectOptionEmitter)="optionSelected($event)">
+            </app-custom-multiple-select>
+        </div>
+    </div>
+
+
+
+    <div class="contact">
+        <h4>Contato</h4>
+
+        <div class="inputs">
+            <div class="side-to-side">
+                <div class="form-item bordered telefone" [ngClass]="{'label-active': telefone}">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" mask="00000-0000 || 0000-0000" [(ngModel)]="telefone" name="telefone">
+                </div>
+                <div class="form-item bordered email" [ngClass]="{'label-active': email}">
+                    <label for="email">E-mail</label>
+                    <input type="text" [(ngModel)]="email" name="email">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="payment">
+        <h4>Dados para o pagamento</h4>
+
+        <div class="inputs">
+            <app-custom-multiple-select class="custom-select" [options]="options2" [type]="'SELECT'"
+                [label]="'Tipo da Conta'" (selectOptionEmitter)="optionSelected($event)">
+            </app-custom-multiple-select>
+            <div class="side-to-side-3 margin-t">
+                <app-custom-multiple-select class="custom-select" [options]="options3" [type]="'SELECT'"
+                    [label]="'Banco'" (selectOptionEmitter)="optionSelected($event)">
+                </app-custom-multiple-select>
+                <div class="form-item bordered agencia" [ngClass]="{'label-active': agencia}">
+                    <label for="agencia">Agência</label>
+                    <input type="text" [(ngModel)]="agencia" name="agencia">
+                </div>
+                <div class="form-item bordered conta" [ngClass]="{'label-active': conta}">
+                    <label for="conta">Conta</label>
+                    <input type="text" [(ngModel)]="conta" name="conta">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="buttons">
+        <button (click)="close()" class="secondary-btn">
+            <div class="margin-icon">Cancelar</div>
+        </button>
+        <button (click)="registerBeneficiary()" class="primary-btn">
+            <div>Cadastrar beneficiário</div>
+        </button>
+    </div>
+
+</main>

@@ -1,0 +1,34 @@
+<main [ngClass]="{'bordered': bordered}">
+    <div class="title" [ngClass]="{'option-selected': getValue()}">
+        {{label}}
+    </div>
+    <container-element [ngSwitch]="type">
+        <div class="select" (click)="openOptions()" [ngClass]="{'active': dropdownStatus}" *ngSwitchCase="'SELECT'">
+            <span class="d-flex align-items-center w-100 h-100 option-value">{{getValue()}}</span>
+            <div class="dropdown" #main [ngClass]="{'active': dropdownStatus}">
+                <div class="option c-p" *ngIf="options[0].multiple">
+                    <label class="container-checkbox w-100 d-flex align-items-center">
+                        Todas
+                        <input type="checkbox" (change)="selectAll()">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="option c-p sub-option d-flex align-items-center" *ngFor="let option of options">
+                    <label class="container-checkbox w-100 d-flex align-items-center" *ngIf="option.multiple">
+                        {{option.description}}
+                        <input type="checkbox" name="checkbox" [value]="option.value"
+                            (change)="selectOneOfMultiple($event, option)" [checked]="option.selected">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div *ngIf="!option.multiple" class="general-input" (click)="selectOption(option)">
+                        {{option.description}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="select" *ngSwitchCase="'DATE'">
+            <input type="date" class="date" name="dateHourCreated">
+        </div>
+    </container-element>
+
+
+</main>

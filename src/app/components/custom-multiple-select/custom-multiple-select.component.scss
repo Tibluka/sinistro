@@ -1,0 +1,124 @@
+main {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    position: relative;
+
+    .title {
+        margin-bottom: 10px;
+    }
+    .select {
+        cursor: pointer;
+        height: 48px;
+        border-radius: 4px;
+        background-color: transparent;
+        border: 1px solid #b3b3b3;
+
+        .date {
+            height: 100%;
+            border: none;
+            width: 100%;
+            outline: none;
+        }
+
+        &.active {
+            border: 1px solid #00a1fc;
+        }
+    }
+    .dropdown {
+        height: 0;
+        border: 1px solid #b3b3b3;
+        filter: drop-shadow(0px 0px 8px #e0e0e0);
+        border-radius: 4px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 82px;
+        background: white;
+        z-index: -1;
+        visibility: hidden;
+        display: grid;
+        grid-template-columns: 1fr;
+        overflow: hidden;
+        overflow-y: scroll;
+
+        .option {
+            padding: 0 12px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            &:hover {
+                background-color: #eef9ff;
+            }
+            .checkmark {
+                left: 0 !important;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .container-checkbox {
+                padding-left: 38px;
+                height: 50px;
+            }
+
+            &.sub-option {
+                .checkmark {
+                    left: 28px !important;
+                }
+                .container-checkbox {
+                    padding-left: 60px !important;
+                }
+                .general-input {
+                    height: 50px;
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                }
+            }
+        }
+
+        &.active {
+            max-height: 192px;
+            min-height: 100px;
+            height: 100vh;
+            z-index: 2;
+            visibility: visible;
+        }
+    }
+
+    &.bordered {
+        .title {
+            font-weight: 500 !important;
+            font-size: 10px !important;
+            line-height: 14px !important;
+            color: #808080 !important;
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            z-index: -1;
+
+            &.option-selected {
+                top: 13px;
+            }
+        }
+
+        .option-value {
+            position: absolute;
+            top: 22px;
+            left: 13px;
+            color: black;
+        }
+        .dropdown {
+            top: 51px;
+            height: 100vh;
+        }
+    }
+}
+
+.value {
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 14px;
+    color: #808080;
+}

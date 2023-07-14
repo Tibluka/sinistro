@@ -1,0 +1,102 @@
+<main>
+
+    <div class="header">
+        <div class="title-with-description">
+            <h1>Declaração de Únicos Herdeiros</h1>
+            <span class="description">Envie a declaração e informe os beneficiários.</span>
+        </div>
+
+        <div class="help">
+            <img class="icon-margin" src="../../../assets/icons/help.svg" alt="">
+            <div>Tutorial</div>
+        </div>
+    </div>
+
+    <div class="insured">
+        <h4>Dados do segurado</h4>
+        <div class="client-data">
+            <div class="item">
+                <label for="">Nome</label>
+                <div class="result">Fulano da Silva Correa Neto</div>
+            </div>
+            <div class="item">
+                <label for="">CPF</label>
+                <div class="result">988.765.432-00 </div>
+            </div>
+            <div class="item">
+                <label for="">Nascimento</label>
+                <div class="result">28/01/1995</div>
+            </div>
+            <div class="item">
+                <label for=""> desde</label>
+                <div class="result">17/04/2018</div>
+            </div>
+            <div class="item">
+                <label for="">Último endosso de aumento de capita </label>
+                <div class="result">07/10/2020</div>
+            </div>
+        </div>
+        <button class="primary-btn btn-with-icon ">
+            <img class="icon-margin" src="../../../../assets/icons/attach-file.svg" alt="">
+            <span>Enviar declaração</span>
+        </button>
+    </div>
+
+    <div class="beneficiaries">
+        <div class="title-btn">
+            <h4>Beneficiários</h4>
+            <div (click)="registerBeneficiary()" class="button-add">
+                <img class="icon-margin" src="../../../../assets/icons/add.svg" alt="">
+                <span>Novo beneficiário</span>
+            </div>
+        </div>
+        <table>
+            <tr>
+                <th class="d-flex align-items-center">
+                    <div>Nome</div>
+                    <img class="img-icon" src="../../../assets/icons/arrow-down.svg" alt="">
+                </th>
+                <th class="d-flex align-items-center">
+                    <div>Nascimento</div>
+                    <img class="img-icon" src="../../../assets/icons/arrow-down.svg" alt="">
+                </th>
+                <th class="d-flex align-items-center">
+                    <div>Relacionamento</div>
+                    <img class="img-icon" src="../../../assets/icons/arrow-down.svg" alt="">
+                </th>
+            </tr>
+            <tr>
+                <td>Lorem Ipsum</td>
+                <td>28/01/2002</td>
+                <td>Esposa(o) / Companheira(o)</td>
+            </tr>
+            <tr>
+                <td>Lorem Ipsum</td>
+                <td>28/01/1995</td>
+                <td>Filho</td>
+            </tr>
+            <tr>
+                <td>Lorem Ipsum</td>
+                <td>28/01/2002</td>
+                <td>Filho</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="important">
+        <div class="info-gray"> <img class="icon-margin" src="../../../assets/icons/info-gray.svg" alt="">
+            <div class="title-info">Importante</div>
+        </div>
+        <div class="text-info">Os percentuais para cada beneficiário são determinados pelo Artigo 792 do Código Civil.
+            <span class="link">Clique aqui e saiba mais.</span>
+        </div>
+
+    </div>
+
+    <div class="buttons">
+        <button (click)="backTo()" class="primary-btn btn-icon">
+            <div>Voltar para Aviso de Sinistro</div>
+        </button>
+    </div>
+
+</main>

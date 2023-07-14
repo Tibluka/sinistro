@@ -1,0 +1,197 @@
+<main>
+
+    <div class="insured">
+        <h3>Dados do segurado</h3>
+        <div class="client-data">
+            <div class="item">
+                <label for="">Nome</label>
+                <div class="result">Fulano da Silva Correa Neto</div>
+            </div>
+            <div class="item">
+                <label for="">CPF</label>
+                <div class="result">988.765.432-00 </div>
+            </div>
+            <div class="item">
+                <label for="">Nascimento</label>
+                <div class="result">28/01/1995</div>
+            </div>
+            <div class="item">
+                <label for=""> desde</label>
+                <div class="result">17/04/2018</div>
+            </div>
+            <div class="item">
+                <label for="">Último endosso de aumento de capita </label>
+                <div class="result">07/10/2020</div>
+            </div>
+        </div>
+
+        <div class="inputs">
+            <div class="form-item bordered profissao" [ngClass]="{'label-active': profissao}">
+                <label for="profissao">Profissão</label>
+                <input type="text" mask="000.000.000-00||00.000.000/0000-00" [(ngModel)]="profissao" name="profissao">
+            </div>
+            <div class="form-item bordered telefone" [ngClass]="{'label-active': telefone}">
+                <label for="telefone">Telefone</label>
+                <input type="text" mask="000.000.000-00||00.000.000/0000-00" [(ngModel)]="telefone" name="telefone">
+            </div>
+            <div class="form-item bordered email" [ngClass]="{'label-active': email}">
+                <label for="email">E-mail</label>
+                <input type="text" mask="000.000.000-00||00.000.000/0000-00" [(ngModel)]="email" name="email">
+            </div>
+        </div>
+
+        <div class="checkbox">
+            <label>
+                <input class="checkbox-lg" type="checkbox">
+                Segurado desempregado.
+            </label>
+        </div>
+
+        <div class="radio-buttons">
+            <div class="mb">Possui endereço comercial?</div>
+
+            <div class="options">
+                <div class="form-check">
+                    <input required [value]="true" [(ngModel)]="possuiEnderecoComercial" class="form-check-input"
+                        type="radio" name="possuiEnderecoComercial" id="possuiEnderecoComercial">
+                    <label class="form-check-label ml" for="possuiEnderecoComercial">
+                        Sim </label>
+                </div>
+                <div class="form-check margin-icon ml">
+                    <input required [value]="false" [(ngModel)]="possuiEnderecoComercial" class="form-check-input"
+                        type="radio" name="possuiEnderecoComercial" id="false">
+                    <label class="form-check-label ml" for="false">
+                        Não </label>
+                </div>
+            </div>
+
+            <div class="address">
+                <div class="cep-search">
+                    <div class="form-item bordered cep" [ngClass]="{'label-active': cep}">
+                        <label for="cep">CEP</label>
+                        <input type="text" mask="00000-000" [(ngModel)]="cep" name="cep">
+                    </div>
+                    <div class="search-btn"><img src="../../../../assets/icons/search-glass.svg" alt=""></div>
+                </div>
+                <div class="form-item bordered endereco" [ngClass]="{'label-active': endereco}">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" [(ngModel)]="endereco" name="endereco">
+                </div>
+                <div class="form-item bordered numero" [ngClass]="{'label-active': numero}">
+                    <label for="numero">Nº</label>
+                    <input type="text" [(ngModel)]="numero" name="numero">
+                </div>
+            </div>
+
+            <div class="address-2">
+                <div class="form-item bordered bairro" [ngClass]="{'label-active': bairro}">
+                    <label for="bairro">Bairro</label>
+                    <input type="text" [(ngModel)]="bairro" name="bairro">
+                </div>
+                <div class="uf">
+                    <app-custom-multiple-select class="custom-select" [options]="uf" [type]="'SELECT'" [label]="'UF'"
+                        (selectOptionEmitter)="optionSelected($event)">
+                    </app-custom-multiple-select>
+                </div>
+                <div class="cidade">
+                    <app-custom-multiple-select class="custom-select" [options]="cidade" [type]="'SELECT'"
+                        [label]="'Cidade'" (selectOptionEmitter)="optionSelected($event)">
+                    </app-custom-multiple-select>
+                </div>
+                <div class="form-item bordered complemento" [ngClass]="{'label-active': complemento}">
+                    <label for="complemento">Complemento</label>
+                    <input type="text" [(ngModel)]="complemento" name="complemento">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="policy">
+        <h5>Dados da apólice</h5>
+        <div class="policy-data">
+            <div class="item">
+                <label for="">Sucursal</label>
+                <div class="result">0171</div>
+            </div>
+            <div class="item">
+                <label for="">Ramo</label>
+                <div class="result">001</div>
+            </div>
+            <div class="item">
+                <label for="">Apólice</label>
+                <div class="result">070000254-0</div>
+            </div>
+            <div class="item">
+                <label for="">Início vigência</label>
+                <div class="result">15/06/2023</div>
+            </div>
+            <div class="item">
+                <label for="">Fim vigência</label>
+                <div class="result">15/06/2023</div>
+            </div>
+            <div class="item">
+                <label for="">Estipulante</label>
+                <div class="result">Lorem Ipsum</div>
+            </div>
+            <div class="item">
+                <label for="">Sub-estipulante</label>
+                <div class="result">Lorem Ipsum</div>
+            </div>
+            <div class="item">
+                <label for="">Item</label>
+                <div class="result">Lorem Ipsum</div>
+            </div>
+        </div>
+
+        <table>
+            <tr>
+                <th class="d-flex">Cobertura</th>
+                <th class="d-flex align-items-center">
+                    <div>Valor da cobertura</div>
+                    <img class="img-icon" src="../../../assets/icons/arrow-down.svg" alt="">
+                </th>
+            </tr>
+            <tr>
+                <td>D.I.T. (Diárias por Incapacidade Temporária)</td>
+                <td>R$ 100.000,00</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="payment">
+        <h5>Dados para pagamento</h5>
+        <div class="inputs">
+            <div class="form-item bordered banco" [ngClass]="{'label-active': banco}">
+                <label for="banco">Banco</label>
+                <select name="banco" [(ngModel)]="banco">
+                    <option [value]=""> 077 - Inter </option>
+                </select>
+            </div>
+            <div class="form-item bordered agencia" [ngClass]="{'label-active': agencia}">
+                <label for="agencia">Agência</label>
+                <input type="text" mask="000.000.000-00||00.000.000/0000-00" [(ngModel)]="agencia" name="agencia">
+            </div>
+            <div class="form-item bordered conta" [ngClass]="{'label-active': conta}">
+                <label for="conta">Conta</label>
+                <input type="text" mask="000.000.000-00||00.000.000/0000-00" [(ngModel)]="conta" name="conta">
+            </div>
+            <div class="form-item bordered tipoConta" [ngClass]="{'label-active': tipoConta}">
+                <label for="tipoConta">Tipo de conta</label>
+                <select name="tipoConta" [(ngModel)]="tipoConta">
+                    <option [value]=""> Conta Corrente </option>
+                    <option [value]=""> Conta Poupança </option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button (click)="cancel()" class="tertiary-btn">Cancelar</button>
+        <button (click)="next()" class="primary-btn btn-icon">
+            <div>Próximo</div>
+            <img class="margin-icon" src="../../../assets/icons/next.svg" alt="">
+        </button>
+    </div>
+
+</main>

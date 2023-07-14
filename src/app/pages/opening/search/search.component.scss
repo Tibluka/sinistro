@@ -1,0 +1,54 @@
+main {
+    .search {
+        .occurrence {
+            h4 {
+                margin: 0 0 16px 0;
+            }
+
+            .options {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+        .info {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        .inputs {
+            margin-bottom: 32px;
+            display: flex;
+
+            .cpfCnpj {
+                min-width: 285px;
+            }
+
+            .occurrence,
+            .occurrenceDate {
+                min-width: 183px;
+            }
+
+            .occurrenceType {
+                min-width: 386px;
+                position: relative;
+            }
+        }
+
+        .grid-template-areas {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+
+            .form-item {
+                margin: 0;
+            }
+        }
+
+    }
+    .custom-select {
+        width: 300px;
+    }
+}

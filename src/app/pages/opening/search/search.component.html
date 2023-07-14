@@ -1,0 +1,52 @@
+<main>
+
+    <div class="search">
+        <div class="inputs grid-template-areas">
+            <div class="form-item bordered cpfCnpj" [ngClass]="{'label-active': cpfCnpjCliente}">
+                <label for="cpfCnpj">CPF/CNPJ</label>
+                <input type="text" mask="000.000.000-00||00.000.000/0000-00" [(ngModel)]="cpfCnpjCliente"
+                    name="cpfCnpj">
+            </div>
+
+            <app-custom-multiple-select class="custom-select" [options]="occurrenceOptions" [type]="'SELECT'"
+                [label]="'Ocorrência'" (selectOptionEmitter)="optionSelected($event)">
+            </app-custom-multiple-select>
+        </div>
+
+        <div class="occurrence">
+            <h4>Ocorrência</h4>
+            <div class="options">
+                <div class="inputs grid-template-areas">
+                    <div class="form-item bordered occurrenceType" [ngClass]="{'label-active': occurrenceType}">
+                        <label for="occurrenceType">O que está pleiteando?</label>
+                        <select name="occurrenceType" [(ngModel)]="occurrenceType">
+                            <option [value]="'Acidente'"> Acidente </option>
+                            <option [value]="'Doença'"> Doença </option>
+                            <option [value]="'Morte natural'"> Morte natural </option>
+                            <option [value]="'Morte acidental'"> Morte acidental </option>
+                            <option [value]="'Outros'"> Outros </option>
+                        </select>
+                    </div>
+                    <div class="form-item bordered occurrenceDate label-active">
+                        <label for="occurrenceDate">Data da ocorrência</label>
+                        <input type="date" [(ngModel)]="occurrenceDate" name="occurrenceDate">
+                    </div>
+                    <div (click)="openDocuments()" class="info">
+                        <img class="icon-margin" src="../../../assets/icons/help.svg" alt="">
+                        <div>Confira os documentos necessários</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="button">
+            <button (click)="search()" class="primary-btn">Pesquisar apólice</button>
+        </div>
+
+        <!-- Results -->
+
+        <app-results [showResults]="showResults" *ngIf="showResults"></app-results>
+
+    </div>
+</main>

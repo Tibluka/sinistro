@@ -1,0 +1,68 @@
+main {
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 0 32px 0;
+        img {
+            cursor: pointer;
+        }
+    }
+
+    h3 {
+        margin: 0;
+    }
+    .register,
+    .contact,
+    .payment {
+        margin: 0 0 32px 0;
+    }
+    h4 {
+        margin: 0 0 16px 0;
+    }
+
+    .inputs {
+
+        .side-to-side {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .side-to-side-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .margin-t {
+            margin-top: 16px;
+        }
+
+        .margin-b {
+            margin-bottom: 16px;
+        }
+    }
+
+    .buttons {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        gap: 16px;
+
+        .btn-icon {
+            display: flex;
+            align-items: center;
+        }
+
+        .margin-icon {
+            margin-left: 8px;
+        }
+    }
+
+    .form-item {
+        margin: 0;
+
+    }
+}

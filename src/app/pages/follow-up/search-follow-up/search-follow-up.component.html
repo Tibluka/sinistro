@@ -1,0 +1,36 @@
+<main>
+
+    <div class="header">
+        <div class="title-with-description">
+            <h1>Acompanhamento de Sinistro - Vida</h1>
+            <span class="description">Selecione a forma de busca para ver mais detalhes do sinistro.</span>
+        </div>
+
+        <div class="help">
+            <img class="icon-margin" src="../../../assets/icons/help.svg" alt="">
+            <div>Tutorial</div>
+        </div>
+    </div>
+
+    <div class="search">
+
+        <div class="type">
+            <app-custom-multiple-select class="gender" [bordered]="true" [options]="searchTypes"
+                [label]="'Tipo de pesquisa'" [type]="'SELECT'">
+            </app-custom-multiple-select>
+        </div>
+
+        <div class="form-item bordered" [ngClass]="{'label-active': cpfCnpjCliente}">
+            <label for="cpfCnpj">CPF do assegurado</label>
+            <input type="text" [(ngModel)]="cpfCnpjCliente" name="cpfCnpj">
+        </div>
+
+        <button class="primary-btn">Pesquisar</button>
+    </div>
+
+    <!-- Results -->
+    <app-results-follow-up></app-results-follow-up>
+
+
+
+</main>

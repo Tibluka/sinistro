@@ -1,0 +1,32 @@
+<main>
+    <table *ngIf="pendingDocuments.length > 0">
+        <tr>
+            <th class="d-flex" style="width: 60%;">Nome do documento</th>
+            <th class="d-flex" style="width: 20%;">Solicitado em</th>
+            <th class="d-flex" style="width: 20%;"> Ações</th>
+        </tr>
+        <tr>
+            <td style="width: 60%;">
+                <div class="subtitle">Comprovante de residência em nome do assegurado</div>
+                <div>Nenhum arquivo anexado</div>
+            </td>
+            <td style="width: 20%;"> 22/01/2020 </td>
+            <td style="width: 20%; display: flex;align-items: center;">
+                <img class="img-icon-r" src="../../../../../assets/icons/upload-document.svg" alt="">
+                <div class="search">Anexar</div>
+            </td>
+        </tr>
+
+    </table>
+
+    <div class="footer">
+        <div class="buttons">
+            <button class="secondary-btn no-border">
+                Cancelar
+            </button>
+            <button class="primary-btn">
+                Enviar documentos
+            </button>
+        </div>
+    </div>
+</main>

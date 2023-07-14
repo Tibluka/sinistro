@@ -1,0 +1,64 @@
+main {
+    .results {
+        margin-bottom: 16px;
+        h5 {
+            margin: 48px 0 0 0;
+        }
+
+        .description {
+            font-size: 14px;
+            color: var(--neutras-black-65);
+            font-weight: 400;
+            margin-bottom: 16px;
+        }
+    }
+
+    table {
+        border-radius: 4px;
+    }
+
+    .selecionar {
+        display: flex;
+        cursor: pointer;
+    }
+
+    .img-icon {
+        margin-left: 4px;
+    }
+
+    .d-flex {
+        display: flex;
+    }
+
+    .align-items-center {
+        align-items: center;
+    }
+
+    .status {
+        border-radius: 8px;
+        display: flex;
+        padding: 4px 8px;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        width: fit-content;
+        &.paid {
+            background: var(--paleta-estendida-green-green-30, #c0f0d3);
+            color: var(--paleta-estendida-green-green-100, #034d2e);
+        }
+        &.analysis {
+            background: var(--paleta-estendida-yellow-yellow-30, #f8f6c2);
+            color: var(--paleta-estendida-yellow-yellow-100, #94621f);
+        }
+        &.doc-pending {
+            background: var(--paleta-estendida-violet-violet-30, #dbc7ff);
+            color: var(--paleta-estendida-violet-violet-100, #48316d);
+        }
+        &.refused {
+            background: var(--paleta-estendida-red-red-30, #ffcdc6);
+            color: var(--paleta-estendida-red-red-100, #842310);
+        }
+    }
+}

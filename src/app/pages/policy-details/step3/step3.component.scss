@@ -1,0 +1,96 @@
+main {
+    h3 {
+        margin: 0 0 8px 0;
+    }
+
+    .description {
+        font-size: 14px;
+        color: var(--neutras-black-65);
+        font-weight: 400;
+    }
+
+    .mandatory {
+        color: #FF5A40;
+    }
+
+    table {
+        margin-top: 26px;
+    }
+    td {
+        padding-right: 16px;
+        border-bottom: 1px solid #E0E0E0;
+    }
+
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .file-data {
+            display: flex;
+            flex-direction: column;
+
+            .title {
+                margin-bottom: 6px;
+                color: #404040;
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+            .files {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+
+                .img-icon-r {
+                    margin-right: 4px;
+                }
+
+                .file {
+                    display: flex;
+
+                    .file-name {
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: var(--primary);
+                    }
+                }
+            }
+
+            .no-file {
+                color: var(--alert-font);
+                font-size: 12px;
+                font-weight: 400;
+            }
+        }
+
+        .button-attach {
+            display: flex;
+            align-items: center;
+
+            span {
+                font-size: 16px;
+                font-weight: 600;
+                color: var(--primary);
+            }
+        }
+    }
+
+
+    .buttons {
+        margin-top: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        gap: 32px;
+
+        .btn-icon {
+            display: flex;
+            align-items: center;
+        }
+
+        .margin-icon {
+            margin-left: 8px;
+        }
+    }
+}

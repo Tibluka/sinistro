@@ -1,0 +1,95 @@
+main {
+    .tag {
+        display: flex;
+        height: 28px;
+        padding: 6px 8px;
+        align-items: center;
+        border-radius: 6px;
+        background: var(--primary-light);
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px;
+        color: var(--primary);
+        width: fit-content;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 32px;
+
+        .title-tag {
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            margin-bottom: 14px;
+        }
+    }
+
+    .help {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--primary);
+        cursor: pointer;
+    }
+
+    .step-component {
+        max-width: 808px;
+        margin-bottom: 32px;
+
+        .step-description {
+            display: flex;
+            justify-content: space-between;
+
+            .next-stage {
+                font-size: 12px;
+                color: #404040;
+                font-weight: 400;
+                margin-bottom: 16px;
+            }
+        }
+
+        .steps {
+            display: flex;
+            align-items: center;
+
+            .step {
+                height: 8px;
+                width: 266px;
+                border-radius: 8px;
+                margin-right: 2px;
+
+            }
+
+            .selected {
+                border: 2px solid var(--primary);
+                background: white;
+            }
+
+            .next-step {
+                background-color: #E0E0E0;
+            }
+            .previous-step {
+                background-color: var(--primary);
+
+            }
+        }
+    }
+
+    h3 {
+        margin: 0 0 24px 0;
+    }
+
+    .steps {
+        .hidden {
+            position: absolute;
+            overflow: hidden;
+            height: 0;
+        }
+    }
+}
