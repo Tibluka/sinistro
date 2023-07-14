@@ -9,10 +9,10 @@ import { CustomOption } from 'src/app/models/customOption';
 export class SearchFollowUpComponent implements OnInit {
 
   searchTypes = [
-    new CustomOption(false, 'CPF', 'cpf'),
-    new CustomOption(false, 'Doença', 'doenca'),
-    new CustomOption(false, 'Morte', 'morte'),
-    new CustomOption(false, 'Outros', 'outros'),
+    new CustomOption(false, 'CPF', 'cpf', ''),
+    new CustomOption(false, 'Doença', 'doenca', ''),
+    new CustomOption(false, 'Morte', 'morte', ''),
+    new CustomOption(false, 'Outros', 'outros', ''),
   ]
   cpfCnpjCliente: string;
 

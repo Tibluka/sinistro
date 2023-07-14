@@ -32,7 +32,7 @@ export class DeathPolicyDetailsComponent {
 
   })
 
-  options = [new CustomOption(false, 'Acidente', 'acidente')];
+  options = [new CustomOption(false, 'Acidente', 'acidente' , '')];
 
 
   constructor(private router: Router,

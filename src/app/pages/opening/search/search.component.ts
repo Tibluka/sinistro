@@ -20,17 +20,20 @@ export class SearchComponent {
     occurrenceDate: new FormControl('', Validators.required)
   })
 
-  options = [
-    new CustomOption(false, 'Acidente', 'acidente'), 
-  new CustomOption(false, 'Doença', 'doenca' ), 
-  new CustomOption(false, 'Morte natural', 'morte'), 
-  new CustomOption(false, 'Morte acidental', 'morte_acidental'), 
-  new CustomOption(false, 'Outros', 'outros')];
+  ocurrenceOptions: Array<CustomOption> = [
+    new CustomOption(false, 'Acidente', 'acidente', 'occurrence'),
+    new CustomOption(false, 'Doença', 'doenca', 'occurrence'),
+    new CustomOption(false, 'Morte natural', 'morte', 'occurrence'),
+    new CustomOption(false, 'Morte acidental', 'morte_acidental', 'occurrence'),
+    new CustomOption(false, 'Outros', 'outros', 'occurrence')
+  ];
+  occurrenceTypeOptions: Array<CustomOption> = [
+    new CustomOption(false, 'D.I.T. (Diárias por Incapacidade Temporaria)', 'dit_code', 'occurrenceType'),
+  ]
 
   constructor(private modalService: ModalService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   openDocuments() {
     this.modalService.open(DocumentsComponent, {
@@ -41,11 +44,12 @@ export class SearchComponent {
   }
 
   search() {
-    this.showResults = true;
+    if (this.searchForm.invalid) {
+      alert('Forulario invalido')
+    } else this.showResults = true;
   }
-  
-  optionSelected(customOption: CustomOption) {
-    console.log(customOption);
 
+  updateForm(customOption: CustomOption) {
+    this.searchForm.get(customOption.formControlName).setValue(customOption.value);
   }
 }

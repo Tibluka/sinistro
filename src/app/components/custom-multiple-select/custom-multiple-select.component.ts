@@ -27,7 +27,8 @@ export class CustomMultipleSelectComponent implements OnInit {
   @Input() inicialValue: string = '';
   @Input() value: Array<CustomOption>;
   @Input() label: string;
-  @Input() options: Array<CustomOption> = [new CustomOption(true, '', '')];
+  @Input() options: Array<CustomOption> = [];
+  @Input() disabled: boolean = false;
   @Output() selectOptionEmitter = new EventEmitter();
 
   constructor() {
@@ -38,6 +39,7 @@ export class CustomMultipleSelectComponent implements OnInit {
   }
 
   openOptions() {
+    if(this.disabled) return;
     setTimeout(() => {
       this.dropdownStatus = true;
     }, 1);

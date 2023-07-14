@@ -10,10 +10,11 @@
                     <input type="text" mask="000.000.000-00||00.000.000/0000-00" formControlName="cpfCnpjCliente">
                 </div>
 
-                <!-- <app-custom-multiple-select class="custom-select" [options]="options" [type]="'SELECT'"
-                    [label]="'Ocorrência'" (selectOptionEmitter)="optionSelected($event)">
-                </app-custom-multiple-select> -->
-                <div class="form-item bordered occurrence label-active">
+                <app-custom-multiple-select class="custom-select" [bordered]="true" [options]="ocurrenceOptions"
+                    [label]="'Ocorrência'" [type]="'SELECT'" (selectOptionEmitter)="updateForm($event)">
+                </app-custom-multiple-select>
+
+                <!-- <div class="form-item bordered occurrence label-active">
                     <label for="occurrence">Ocorrência</label>
                     <select formControlName="occurrence" id="">
                         <option value="'Acidente'">Acidente</option>
@@ -22,7 +23,7 @@
                         <option value="'Morte acidental'">Morte acidental</option>
                         <option value="'Outros'">Outros</option>
                     </select>
-                </div>
+                </div> -->
             </div>
 
             <div *ngIf="searchForm.get('cpfCnpjCliente').value && searchForm.get('occurrence').value">
@@ -30,17 +31,20 @@
                     <h4>Ocorrência</h4>
                     <div class="options">
                         <div class="inputs grid-template-areas">
-                            <!--  <div class="occurrenceType">
-                            <app-custom-multiple-select class="custom-select" [options]="options" [type]="'SELECT'"
-                                [label]="'O que está pleiteando?'" (selectOptionEmitter)="optionSelected($event)">
-                            </app-custom-multiple-select>
-                        </div> -->
-                            <div class="form-item bordered occurrence label-active">
+
+                            <div class="occurrence">
+                                <app-custom-multiple-select class="custom-select" [bordered]="true"
+                                    [options]="occurrenceTypeOptions" [label]="'O que está pleiteando?'"
+                                    [type]="'SELECT'" (selectOptionEmitter)="updateForm($event)">
+                                </app-custom-multiple-select>
+                            </div>
+
+                            <!--  <div class="form-item bordered occurrence label-active">
                                 <label for="occurrenceType">O que está pleiteando?</label>
                                 <select formControlName="occurrenceType" id="">
                                     <option value="">D.I.T. (Diárias por Incapacidade Temporaria)</option>
                                 </select>
-                            </div>
+                            </div> -->
                             <div class="form-item bordered occurrenceDate label-active">
                                 <label for="occurrenceDate">Data da ocorrência</label>
                                 <input type="date" formControlName="occurrenceDate">

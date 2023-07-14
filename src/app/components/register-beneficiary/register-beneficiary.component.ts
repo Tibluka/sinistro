@@ -17,9 +17,9 @@ export class RegisterBeneficiaryComponent {
   agencia: string = '';
   conta: string = '';
 
-  options = [new CustomOption(false, 'Filho', 'filho')];
-  options2 = [new CustomOption(false, 'Conta Corrente', 'conta_corrente')];
-  options3 = [new CustomOption(false, '077 - Inter', 'inter')]
+  options = [new CustomOption(false, 'Filho', 'filho', '')];
+  options2 = [new CustomOption(false, 'Conta Corrente', 'conta_corrente', '')];
+  options3 = [new CustomOption(false, '077 - Inter', 'inter', '')]
 
   constructor(private modalService: ModalService) { }
 

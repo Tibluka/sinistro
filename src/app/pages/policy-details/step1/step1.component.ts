@@ -31,8 +31,8 @@ export class Step1Component {
   
   step: number = 1;
 
-  uf = [new CustomOption(false, 'SP', 'sp')];
-  cidade = [new CustomOption(false, 'São José do Rio Preto' , 'sjrp')];
+  uf = [new CustomOption(false, 'SP', 'sp', '')];
+  cidade = [new CustomOption(false, 'São José do Rio Preto' , 'sjrp', '')];
 
   constructor(private router: Router) { }
 
