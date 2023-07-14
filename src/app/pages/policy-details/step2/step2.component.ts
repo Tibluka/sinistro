@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -22,6 +23,19 @@ export class Step2Component {
   atendimentoMedico: boolean = false;
 
   constructor(private router: Router) { }
+
+  detailsForm: FormGroup = new FormGroup({
+    totalDias: new FormControl('', Validators.required),
+    inicioAfastamento: new FormControl('', Validators.required),
+    pais: new FormControl('', Validators.required),
+    uf: new FormControl('', Validators.required),
+    cidade: new FormControl('', Validators.required),
+    acidenteRegistrado: new FormControl(false, Validators.required),
+    atendimentoMedico: new FormControl(false, Validators.required),
+    description: new FormControl('', Validators.required),
+    localAtendimento: new FormControl(''),
+    formaAcidenteRegistrado: new FormControl(null)
+  })
 
   ngOnInit(): void {
   }

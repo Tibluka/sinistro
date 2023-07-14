@@ -1,120 +1,165 @@
 <main>
 
-    <div class="occurrence">
-        <h3>Detalhes da ocorrência</h3>
-        <div class="occurrence-data">
-            <div class="item">
-                <label for="">Decorrência</label>
-                <div class="result">Doença</div>
+    <form [formGroup]="detailsForm">
+        <div class="occurrence">
+            <h3>Detalhes da ocorrência</h3>
+            <div class="occurrence-data">
+                <div class="item">
+                    <label for="">Decorrência</label>
+                    <div class="result">Doença</div>
+                </div>
+                <div class="item">
+                    <label for="">Pleito</label>
+                    <div class="result">D.I.T. (Diárias por Incapacidade Temporária)</div>
+                </div>
+                <div class="item">
+                    <label for="">Data da ocorrência</label>
+                    <div class="result">31/12/2022</div>
+                </div>
             </div>
-            <div class="item">
-                <label for="">Pleito</label>
-                <div class="result">D.I.T. (Diárias por Incapacidade Temporária)</div>
-            </div>
-            <div class="item">
-                <label for="">Data da ocorrência</label>
-                <div class="result">31/12/2022</div>
-            </div>
-        </div>
-
-        <div class="inputs">
-            <div class="form-item bordered totalDias" [ngClass]="{'label-active': totalDias}">
-                <label for="totalDias">Total de dias afastado</label>
-                <input type="text" [(ngModel)]="totalDias" name="totalDias">
-            </div>
-            <div class="form-item bordered inicioAfastamento label-active">
-                <label for="inicioAfastamento">Início do afastamento</label>
-                <input type="date" [(ngModel)]="inicioAfastamento" name="inicioAfastamento">
-            </div>
-        </div>
-
-        <div class="local">
-            <h5>Local da ocorrência</h5>
 
             <div class="inputs">
-                <div class="form-item bordered pais" [ngClass]="{'label-active': pais}">
-                    <label for="pais">País</label>
-                    <select name="pais" [(ngModel)]="pais">
-                        <option [value]="'Brasil'"> Brasil </option>
-                    </select>
+                <div class="form-item bordered totalDias"
+                    [ngClass]="{'label-active': detailsForm.get('totalDias').value}">
+                    <label for="totalDias">Total de dias afastado</label>
+                    <input type="text" formControlName="totalDias">
                 </div>
-                <div class="form-item bordered uf" [ngClass]="{'label-active': uf}">
-                    <label for="uf">UF</label>
-                    <select name="uf" [(ngModel)]="uf">
-                        <option [value]="'Brasil'"> Brasil </option>
-                    </select>
-                </div>
-                <div class="form-item bordered cidade" [ngClass]="{'label-active': cidade}">
-                    <label for="cidade">Cidade</label>
-                    <select name="cidade" [(ngModel)]="cidade">
-                        <option [value]="'Brasil'"> São José do Rio Preto </option>
-                    </select>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="radio-buttons">
-            <h5>Acidente foi registrado?</h5>
-
-            <div class="options">
-                <div class="form-check mb">
-                    <input required [value]="true" [(ngModel)]="acidenteRegistrado" class="form-check-input"
-                        type="radio" name="acidenteRegistrado" id="acidenteRegistrado">
-                    <label class="form-check-label ml" for="acidenteRegistrado">
-                        Sim </label>
-                </div>
-                <div class="form-check margin-icon">
-                    <input required [value]="false" [(ngModel)]="acidenteRegistrado" class="form-check-input"
-                        type="radio" name="acidenteRegistrado" id="false">
-                    <label class="form-check-label ml" for="false">
-                        Não </label>
+                <div class="form-item bordered inicioAfastamento label-active">
+                    <label for="inicioAfastamento">Início do afastamento</label>
+                    <input type="date" formControlName="inicioAfastamento">
                 </div>
             </div>
-        </div>
 
-        <div class="radio-buttons">
-            <h5>Houve atendimento médico na data do acidente?</h5>
+            <div class="local">
+                <h5>Local da ocorrência</h5>
 
-            <div class="options">
-                <div class="form-check mb">
-                    <input required [value]="true" [(ngModel)]="atendimentoMedico" class="form-check-input" type="radio"
-                        name="atendimentoMedico" id="atendimentoMedico">
-                    <label class="form-check-label ml" for="atendimentoMedico">
-                        Sim </label>
-                </div>
-                <div class="form-check margin-icon">
-                    <input required [value]="false" [(ngModel)]="atendimentoMedico" class="form-check-input"
-                        type="radio" name="atendimentoMedico" id="false">
-                    <label class="form-check-label ml" for="false">
-                        Não </label>
+                <div class="inputs">
+                    <div class="form-item bordered pais" [ngClass]="{'label-active': detailsForm.get('pais').value}">
+                        <label for="pais">País</label>
+                        <select formControlName="pais">
+                            <option [value]="'Brasil'"> Brasil </option>
+                        </select>
+                    </div>
+                    <div class="form-item bordered uf" [ngClass]="{'label-active': detailsForm.get('uf').value}">
+                        <label for="uf">UF</label>
+                        <select formControlName="uf">
+                            <option [value]="'Brasil'"> Brasil </option>
+                        </select>
+                    </div>
+                    <div class="form-item bordered cidade"
+                        [ngClass]="{'label-active': detailsForm.get('cidade').value}">
+                        <label for="cidade">Cidade</label>
+                        <select formControlName="cidade">
+                            <option [value]="'Brasil'"> São José do Rio Preto </option>
+                        </select>
+                    </div>
+
                 </div>
             </div>
-        </div>
 
-        <div class="info">
-            <h5>Descreva detalhadamente como o acidente ocorreu</h5>
-            <div class="text-area">
-                <div class="form-item bordered-text-area totalDias" [ngClass]="{'label-active-text-area': totalDias}">
-                    <label for="totalDias">Descrição do acidente</label>
-                    <textarea [(ngModel)]="totalDias" name="totalDias" name="" id="" cols="30" rows="10">
+            <div class="radio-side-to-side">
+                <div class="radio-buttons">
+                    <h5>Acidente foi registrado?</h5>
+
+                    <div class="options">
+                        <div class="form-check mb">
+                            <input required [value]="true" formControlName="acidenteRegistrado" class="form-check-input"
+                                type="radio" id="acidenteRegistrado">
+                            <label class="form-check-label ml" for="acidenteRegistrado">
+                                Sim </label>
+                        </div>
+                        <div class="form-check margin-icon">
+                            <input required [value]="false" formControlName="acidenteRegistrado"
+                                class="form-check-input" type="radio" id="false">
+                            <label class="form-check-label ml" for="false">
+                                Não </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="radio-buttons">
+                    <h5>De que forma o acidente foi registrado?</h5>
+
+                    <div class="options">
+                        <div class="form-check mb">
+                            <input required [value]="'Comunicado'" formControlName="formaAcidenteRegistrado"
+                                class="form-check-input" type="radio" id="formaAcidenteRegistrado">
+                            <label class="form-check-label ml" for="formaAcidenteRegistrado">
+                                Comunicado de acidente de trabalho </label>
+                        </div>
+                        <div class="form-check margin-icon mb">
+                            <input required [value]="'BO'" formControlName="formaAcidenteRegistrado"
+                                class="form-check-input" type="radio" id="false">
+                            <label class="form-check-label ml" for="false">
+                                Boletim de ocorrência </label>
+                        </div>
+                        <div class="form-check margin-icon">
+                            <input required [value]="'Outros'" formControlName="formaAcidenteRegistrado"
+                                class="form-check-input" type="radio" id="false">
+                            <label class="form-check-label ml" for="false">
+                                Outros</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="radio-side-to-side">
+                <div class="radio-buttons">
+                    <h5>Houve atendimento médico na data do acidente?</h5>
+    
+                    <div class="options">
+                        <div class="form-check mb">
+                            <input required [value]="true" formControlName="atendimentoMedico" class="form-check-input"
+                                type="radio" id="atendimentoMedico">
+                            <label class="form-check-label ml" for="atendimentoMedico">
+                                Sim </label>
+                        </div>
+                        <div class="form-check margin-icon">
+                            <input required [value]="false" formControlName="atendimentoMedico" class="form-check-input"
+                                type="radio" id="false">
+                            <label class="form-check-label ml" for="false">
+                                Não </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="radio-buttons">
+                    <h5>Qual o local do atendimento?</h5>
+    
+                    <div class="form-item bordered localAtendimento"
+                            [ngClass]="{'label-active': detailsForm.get('localAtendimento').value}">
+                            <label for="localAtendimento">Local do atendimento</label>
+                            <input type="text" formControlName="localAtendimento">
+                        </div>
+                </div>
+            </div>
+           
+            
+
+            <div class="info">
+                <h5>Descreva detalhadamente como o acidente ocorreu</h5>
+                <div class="text-area">
+                    <div class="form-item bordered-text-area description"
+                        [ngClass]="{'label-active-text-area': detailsForm.get('description').value}">
+                        <label for="description">Descrição do acidente</label>
+                        <textarea formControlName="description" id="" cols="30" rows="10">
                         Lorem Ipsum
                     </textarea>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="buttons">
-        <button (click)="cancel()" class="tertiary-btn">Cancelar</button>
-        <button (click)="previous()" class="secondary-btn btn-icon">
-            <img src="../../../assets/icons/back.svg" alt="">
-            <div class="margin-icon">Anterior</div>
-        </button>
-        <button (click)="next()" class="primary-btn btn-icon">
-            <div>Próximo</div>
-            <img class="margin-icon" src="../../../assets/icons/next.svg" alt="">
-        </button>
-    </div>
+        <div class="buttons">
+            <button (click)="cancel()" class="tertiary-btn">Cancelar</button>
+            <button (click)="previous()" class="secondary-btn btn-icon">
+                <img src="../../../assets/icons/back.svg" alt="">
+                <div class="margin-icon">Anterior</div>
+            </button>
+            <button (click)="next()" class="primary-btn btn-icon">
+                <div>Próximo</div>
+                <img class="margin-icon" src="../../../assets/icons/next.svg" alt="">
+            </button>
+        </div>
+    </form>
+
 
 </main>

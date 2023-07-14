@@ -1,196 +1,297 @@
 <main>
+    <form [formGroup]="deathForm">
 
-    <div class="header">
-        <div class="title-with-description">
-            <h1>Aviso de Sinistro - Vida</h1>
-            <span class="description">Para informar um sinistro, pesquise a apólice e informe os dados da
-                ocorrência.</span>
-        </div>
+        <div class="header">
+            <div class="title-with-description">
+                <h1>Aviso de Sinistro - Vida</h1>
+                <span class="description">Para informar um sinistro, pesquise a apólice e informe os dados da
+                    ocorrência.</span>
+            </div>
 
-        <div class="help">
-            <img class="icon-margin" src="../../../assets/icons/help.svg" alt="">
-            <div>Tutorial</div>
-        </div>
-    </div>
-
-    <div class="insured">
-        <h4>Dados do segurado</h4>
-        <div class="client-data">
-            <div class="item">
-                <label for="">Nome</label>
-                <div class="result">Fulano da Silva Correa Neto</div>
-            </div>
-            <div class="item">
-                <label for="">CPF</label>
-                <div class="result">988.765.432-00 </div>
-            </div>
-            <div class="item">
-                <label for="">Nascimento</label>
-                <div class="result">28/01/1995</div>
-            </div>
-            <div class="item">
-                <label for=""> desde</label>
-                <div class="result">17/04/2018</div>
-            </div>
-            <div class="item">
-                <label for="">Último endosso de aumento de capita </label>
-                <div class="result">07/10/2020</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="occurrence">
-        <h4>Detalhes da ocorrência</h4>
-        <div class="occurrence-data">
-            <div class="item">
-                <label for="">Decorrência</label>
-                <div class="result">Morte Natural</div>
-            </div>
-            <div class="item">
-                <label for="">Pessoa da ocorrência</label>
-                <div class="result">Esposa(o) / Companheira(o)</div>
-            </div>
-            <div class="item">
-                <label for="">Data da ocorrência</label>
-                <div class="result">31/12/2022</div>
-            </div>
-        </div>
-        <button (click)="sendDocumentsDeatch()" class="primary-btn btn-with-icon ">
-            <img class="icon-margin" src="../../../../assets/icons/attach-file.svg" alt="">
-            <span>Enviar documentos</span>
-        </button>
-    </div>
-
-    <div class="policy">
-        <h4>Apólice</h4>
-        <div class="policy-data">
-            <div class="item">
-                <label for="">Sucursal</label>
-                <div class="result">0171</div>
-            </div>
-            <div class="item">
-                <label for="">Ramo</label>
-                <div class="result">001</div>
-            </div>
-            <div class="item">
-                <label for="">Apólice</label>
-                <div class="result">070000254-0</div>
-            </div>
-            <div class="item">
-                <label for="">Início vigência</label>
-                <div class="result">15/06/2023</div>
-            </div>
-            <div class="item">
-                <label for="">Fim vigência</label>
-                <div class="result">15/06/2023</div>
-            </div>
-            <div class="item">
-                <label for="">Estipulante</label>
-                <div class="result">Lorem Ipsum</div>
-            </div>
-            <div class="item">
-                <label for="">Sub-estipulante</label>
-                <div class="result">Lorem Ipsum</div>
-            </div>
-            <div class="item">
-                <label for="">Item</label>
-                <div class="result">Lorem Ipsum</div>
+            <div class="help">
+                <img class="icon-margin" src="../../../assets/icons/help.svg" alt="">
+                <div>Tutorial</div>
             </div>
         </div>
 
-        <table>
-            <tr>
-                <th class="d-flex">Cobertura</th>
-                <th class="d-flex align-items-center">
-                    <div>Valor da cobertura</div>
-                    <img class="img-icon" src="../../../assets/icons/arrow-down.svg" alt="">
-                </th>
-            </tr>
-            <tr>
-                <td>Lorem Ipsum</td>
-                <td>R$ 100.000,00</td>
-            </tr>
-            <tr>
-                <td>Lorem Ipsum</td>
-                <td>R$ 100.000,00</td>
-            </tr>
-            <tr>
-                <td>Lorem Ipsum</td>
-                <td>R$ 100.000,00</td>
-            </tr>
-        </table>
-    </div>
-
-    <div class="check-boxes">
-        <div class="checkbox">
-            <label>
-                <input class="checkbox-lg" type="checkbox">
-                Sinistrado aposentado.
-            </label>
+        <div class="insured">
+            <h4>Dados do segurado</h4>
+            <div class="client-data">
+                <div class="item">
+                    <label for="">Nome</label>
+                    <div class="result">Fulano da Silva Correa Neto</div>
+                </div>
+                <div class="item">
+                    <label for="">CPF</label>
+                    <div class="result">988.765.432-00 </div>
+                </div>
+                <div class="item">
+                    <label for="">Nascimento</label>
+                    <div class="result">28/01/1995</div>
+                </div>
+                <div class="item">
+                    <label for=""> desde</label>
+                    <div class="result">17/04/2018</div>
+                </div>
+                <div class="item">
+                    <label for="">Último endosso de aumento de capita </label>
+                    <div class="result">07/10/2020</div>
+                </div>
+            </div>
         </div>
 
-        <div class="checkbox">
-            <label>
-                <input class="checkbox-lg" type="checkbox">
-                Sinistrado afastado nos últimos 3 anos?
-            </label>
+        <div class="occurrence">
+            <h4>Detalhes da ocorrência</h4>
+            <div class="occurrence-data">
+                <div class="item">
+                    <label for="">Decorrência</label>
+                    <div class="result">Morte Natural</div>
+                </div>
+                <div class="item">
+                    <label for="">Pessoa da ocorrência</label>
+                    <div class="result">Esposa(o) / Companheira(o)</div>
+                </div>
+                <div class="item">
+                    <label for="">Data da ocorrência</label>
+                    <div class="result">31/12/2022</div>
+                </div>
+            </div>
+            <button (click)="sendDocumentsDeatch()" class="primary-btn btn-with-icon ">
+                <img class="icon-margin" src="../../../../assets/icons/attach-file.svg" alt="">
+                <span>Enviar documentos</span>
+            </button>
         </div>
-    </div>
 
-    <div class="beneficiaries">
-        <h4>Beneficiários</h4>
-        <table>
-            <tr>
-                <th class="d-flex align-items-center">
-                    <div>Nome</div>
-                    <img class="img-icon" src="../../../assets/icons/arrow-down.svg" alt="">
-                </th>
-                <th class="d-flex align-items-center">
-                    <div>Nascimento</div>
-                    <img class="img-icon" src="../../../assets/icons/arrow-down.svg" alt="">
-                </th>
-                <th class="d-flex align-items-center">
-                    <div>Relacionamento</div>
-                    <img class="img-icon" src="../../../assets/icons/arrow-down.svg" alt="">
-                </th>
-            </tr>
-            <tr>
-                <td>Lorem Ipsum</td>
-                <td>28/01/2002</td>
-                <td>Esposa(o) / Companheira(o)</td>
-            </tr>
-            <tr>
-                <td>Lorem Ipsum</td>
-                <td>28/01/1995</td>
-                <td>Filho</td>
-            </tr>
-            <tr>
-                <td>Lorem Ipsum</td>
-                <td>28/01/2002</td>
-                <td>Filho</td>
-            </tr>
-        </table>
-    </div>
+        <div class="policy">
+            <h4>Apólice</h4>
+            <div class="policy-data">
+                <div class="item">
+                    <label for="">Sucursal</label>
+                    <div class="result">0171</div>
+                </div>
+                <div class="item">
+                    <label for="">Ramo</label>
+                    <div class="result">001</div>
+                </div>
+                <div class="item">
+                    <label for="">Apólice</label>
+                    <div class="result">070000254-0</div>
+                </div>
+                <div class="item">
+                    <label for="">Início vigência</label>
+                    <div class="result">15/06/2023</div>
+                </div>
+                <div class="item">
+                    <label for="">Fim vigência</label>
+                    <div class="result">15/06/2023</div>
+                </div>
+                <div class="item">
+                    <label for="">Estipulante</label>
+                    <div class="result">Lorem Ipsum</div>
+                </div>
+                <div class="item">
+                    <label for="">Sub-estipulante</label>
+                    <div class="result">Lorem Ipsum</div>
+                </div>
+                <div class="item">
+                    <label for="">Item</label>
+                    <div class="result">Lorem Ipsum</div>
+                </div>
+            </div>
 
-    <div class="important">
-        <div class="info-gray"> <img class="icon-margin" src="../../../assets/icons/info.svg" alt="">
-            <div class="title-info">Importante</div>
+            <table>
+                <tr>
+                    <th class="d-flex">Cobertura</th>
+                    <th class="d-flex align-items-center">
+                        <div>Valor da cobertura</div>
+                        <img class="img-icon" src="../../../assets/icons/arrow-down.svg" alt="">
+                    </th>
+                </tr>
+                <tr>
+                    <td>Lorem Ipsum</td>
+                    <td>R$ 100.000,00</td>
+                </tr>
+                <tr>
+                    <td>Lorem Ipsum</td>
+                    <td>R$ 100.000,00</td>
+                </tr>
+                <tr>
+                    <td>Lorem Ipsum</td>
+                    <td>R$ 100.000,00</td>
+                </tr>
+            </table>
         </div>
-        <div class="text-info">Caso os <b>beneficiários não estejam nominados</b>, será necessário fazer o upload da
-            <b>Declaração de
-                Herdeiros Únicos</b> assinada.</div>
-        <button (click)="sendDeclaration()" class="primary-btn btn-with-icon ">
-            <img class="icon-margin" src="../../../../assets/icons/attach-file.svg" alt="">
-            <span>Enviar declaração</span>
-        </button>
-    </div>
 
-    <div class="buttons">
-        <button (click)="cancel()" class="tertiary-btn">Cancelar</button>
-        <button (click)="openSinistry()" class="primary-btn btn-icon">
-            <div>Abrir sinistro</div>
-            <img class="margin-icon" src="../../../assets/icons/next.svg" alt="">
-        </button>
-    </div>
+        <div class="check-boxes">
+            <div class="checkbox">
+                <label>
+                    <input class="checkbox-lg" type="checkbox">
+                    Sinistrado aposentado.
+                </label>
+            </div>
+            <div class="aposentado">
+                <div class="form-item bordered motivoAposentadoria label-active">
+                    <label for="motivoAposentadoria">Motivo da aposentadoria</label>
+                    <select formControlName="motivoAposentadoria" id="">
+                        <option value="">Tempo de serviço</option>
+                    </select>
+                </div>
+                 <div class="form-item bordered aposentadoDesde label-active">
+                    <label for="aposentadoDesde">Aposentado desde</label>
+                    <input type="date" formControlName="aposentadoDesde">
+                </div>
+                <div class="form-item bordered tempoServico label-active">
+                    <label for="tempoServico">Tempo de serviço</label>
+                    <select formControlName="tempoServico" id="">
+                        <option value="">35 anos</option>
+                    </select>
+                </div>
+            </div>
+   
 
+            <div class="checkbox">
+                <label>
+                    <input class="checkbox-lg" type="checkbox">
+                    Sinistrado afastado nos últimos 3 anos?
+                </label>
+            </div>
+            <div class="afastado">
+                <div class="form-item bordered inicioAfastamento label-active">
+                    <label for="inicioAfastamento">Início afastamento</label>
+                    <input type="date" formControlName="inicioAfastamento">
+                </div>
+                <div class="form-item bordered fimAfastamento label-active">
+                    <label for="fimAfastamento">Fim afastamento</label>
+                    <input type="date" formControlName="fimAfastamento">
+                </div>
+                <div>
+                    <!--  <app-custom-multiple-select class="custom-select" [options]="options" [type]="'SELECT'"
+                    [label]="'Motivo'" (selectOptionEmitter)="optionSelected($event)">
+                </app-custom-multiple-select> -->
+                    <div class="form-item bordered motivoAfastamento label-active">
+                        <label for="motivoAfastamento">Motivo</label>
+                        <select formControlName="motivoAfastamento" id="">
+                            <option value="">Acidente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="button-add">
+                    <img class="icon-margin" src="../../../../assets/icons/plus.svg" alt="">
+                    <span>Incluir</span>
+                </div>
+            </div>
+            <table>
+                <tr>
+                    <th class="d-flex align-items-center">
+                        <div>Início afastamento</div>
+                        <img class="img-icon" src="../../../assets/icons/arrow-down.svg" alt="">
+                    </th>
+                    <th class="d-flex align-items-center">
+                        <div>Fim afastamento</div>
+                        <img class="img-icon" src="../../../assets/icons/arrow-down.svg" alt="">
+                    </th>
+                    <th class="d-flex">Motivo</th>
+                    <th class="d-flex">Ações</th>
+                </tr>
+                <tr>
+                    <td>15/06/2022</td>
+                    <td>15/06/2022</td>
+                    <td>Lorem ipsum</td>
+                    <td><img src="../../../assets/icons/trash.svg" alt=""></td>
+                </tr>
+                <tr>
+                    <td>15/06/2022</td>
+                    <td>15/06/2022</td>
+                    <td>Lorem ipsum</td>
+                    <td><img src="../../../assets/icons/trash.svg" alt=""></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="beneficiaries">
+            <h4>Beneficiários</h4>
+            <table>
+                <tr>
+                    <th class="d-flex align-items-center">
+                        <div>Nome</div>
+                        <img class="img-icon" src="../../../assets/icons/arrow-down.svg" alt="">
+                    </th>
+                    <th class="d-flex align-items-center">
+                        <div>Nascimento</div>
+                        <img class="img-icon" src="../../../assets/icons/arrow-down.svg" alt="">
+                    </th>
+                    <th class="d-flex align-items-center">
+                        <div>Relacionamento</div>
+                    </th>
+                    <th class="d-flex align-items-center">
+                        <div>Percentual</div>
+                        <img class="img-icon" src="../../../assets/icons/arrow-down.svg" alt="">
+                    </th>
+                    <th class="d-flex align-items-center">
+                        <div>Documentos</div>
+                    </th>
+                </tr>
+                <tr>
+                    <td>Lorem Ipsum</td>
+                    <td>28/01/2002</td>
+                    <td>Esposa(o) / Companheira(o)</td>
+                    <td>50%</td>
+                    <td>
+                        <div (click)="sendDocumentsBeneficiary()" class="button-attach">
+                            <img class="icon-margin" src="../../../../assets/icons/attach.svg" alt="">
+                            <span>Enviar</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Lorem Ipsum</td>
+                    <td>28/01/1995</td>
+                    <td>Filho</td>
+                    <td>25%</td>
+                    <td>
+                        <div (click)="sendDocumentsBeneficiary()" class="button-attach">
+                            <img class="icon-margin" src="../../../../assets/icons/attach.svg" alt="">
+                            <span>Enviar</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Lorem Ipsum</td>
+                    <td>28/01/2002</td>
+                    <td>Filho</td>
+                    <td>25%</td>
+
+                    <td>
+                        <div (click)="sendDocumentsBeneficiary()" class="button-attach">
+                            <img class="icon-margin" src="../../../../assets/icons/attach.svg" alt="">
+                            <span>Enviar</span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="important">
+            <div class="info-gray"> <img class="icon-margin" src="../../../assets/icons/info.svg" alt="">
+                <div class="title-info">Importante</div>
+            </div>
+            <div class="text-info">Caso os <b>beneficiários não estejam nominados</b>, será necessário fazer o upload da
+                <b>Declaração de
+                    Herdeiros Únicos</b> assinada.
+            </div>
+            <button (click)="sendDeclaration()" class="primary-btn btn-with-icon ">
+                <img class="icon-margin" src="../../../../assets/icons/attach-file.svg" alt="">
+                <span>Enviar declaração</span>
+            </button>
+        </div>
+
+        <div class="buttons">
+            <button (click)="cancel()" class="tertiary-btn">Cancelar</button>
+            <button (click)="openSinistry()" class="primary-btn btn-icon">
+                <div>Abrir sinistro</div>
+                <img class="margin-icon" src="../../../assets/icons/next.svg" alt="">
+            </button>
+        </div>
+
+    </form>
 </main>

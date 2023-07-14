@@ -1,17 +1,15 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PagesComponent } from './pages.component';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ModalComponent } from '../components/modal/modal.component';
-import { DeathPolicyDetailsComponent } from './death-policy-details/death-policy-details.component';
+import { PagesComponent } from './pages.component';
 
 
 
 @NgModule({
   declarations: [
     PagesComponent,
-    ModalComponent,
-    DeathPolicyDetailsComponent
+    ModalComponent
   ],
   imports: [
     CommonModule,

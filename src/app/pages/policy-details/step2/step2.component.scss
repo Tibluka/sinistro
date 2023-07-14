@@ -37,10 +37,12 @@ main {
         gap: 16px;
         margin-bottom: 48px;
 
-        .totalDias, .inicioAfastamento {
+        .totalDias,
+        .inicioAfastamento {
             min-width: 183px;
 
         }
+
         .form-item {
             margin: 0;
         }
@@ -61,14 +63,21 @@ main {
         .pais {
             min-width: 183px;
         }
+
         .cidade {
             min-width: 389px;
         }
     }
 
+    .radio-side-to-side {
+        display: flex;
+        gap: 20px;
+        align-items: start;
+    }
+
     .radio-buttons {
         margin-bottom: 48px;
-
+        min-width: 385px;
         .mb {
             margin-bottom: 16px;
         }
