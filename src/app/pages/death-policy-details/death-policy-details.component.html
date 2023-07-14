@@ -125,37 +125,36 @@
         <div class="check-boxes">
             <div class="checkbox">
                 <label>
-                    <input class="checkbox-lg" type="checkbox">
+                    <input class="checkbox-lg" value="true" formControlName="sinistradoAposentado" type="checkbox">
                     Sinistrado aposentado.
                 </label>
             </div>
-            <div class="aposentado">
-                <div class="form-item bordered motivoAposentadoria label-active">
-                    <label for="motivoAposentadoria">Motivo da aposentadoria</label>
-                    <select formControlName="motivoAposentadoria" id="">
-                        <option value="">Tempo de serviço</option>
-                    </select>
+            <div *ngIf="deathForm.get('sinistradoAposentado').value == true" class="motivoAposentadoria">
+                <div class="motivoDaAposentadoria">
+                    <app-custom-multiple-select class="custom-select" [bordered]="true"
+                        [options]="motivoAposentadoriaOptions" [label]="'Motivo da aposentadoria'" [type]="'SELECT'"
+                        (selectOptionEmitter)="updateForm($event)">
+                    </app-custom-multiple-select>
                 </div>
-                 <div class="form-item bordered aposentadoDesde label-active">
+                <div class="form-item bordered aposentadoDesde label-active">
                     <label for="aposentadoDesde">Aposentado desde</label>
                     <input type="date" formControlName="aposentadoDesde">
                 </div>
-                <div class="form-item bordered tempoServico label-active">
-                    <label for="tempoServico">Tempo de serviço</label>
-                    <select formControlName="tempoServico" id="">
-                        <option value="">35 anos</option>
-                    </select>
+                <div class="tempoServico">
+                    <app-custom-multiple-select class="custom-select" [bordered]="true" [options]="tempoServicoOptions"
+                        [label]="'Tempo de serviço'" [type]="'SELECT'" (selectOptionEmitter)="updateForm($event)">
+                    </app-custom-multiple-select>
                 </div>
             </div>
-   
+
 
             <div class="checkbox">
                 <label>
-                    <input class="checkbox-lg" type="checkbox">
+                    <input class="checkbox-lg" type="checkbox" formControlName="sinistradoAfastado">
                     Sinistrado afastado nos últimos 3 anos?
                 </label>
             </div>
-            <div class="afastado">
+            <div *ngIf="deathForm.get('sinistradoAfastado').value == true" class="afastado">
                 <div class="form-item bordered inicioAfastamento label-active">
                     <label for="inicioAfastamento">Início afastamento</label>
                     <input type="date" formControlName="inicioAfastamento">
@@ -164,23 +163,18 @@
                     <label for="fimAfastamento">Fim afastamento</label>
                     <input type="date" formControlName="fimAfastamento">
                 </div>
-                <div>
-                    <!--  <app-custom-multiple-select class="custom-select" [options]="options" [type]="'SELECT'"
-                    [label]="'Motivo'" (selectOptionEmitter)="optionSelected($event)">
-                </app-custom-multiple-select> -->
-                    <div class="form-item bordered motivoAfastamento label-active">
-                        <label for="motivoAfastamento">Motivo</label>
-                        <select formControlName="motivoAfastamento" id="">
-                            <option value="">Acidente</option>
-                        </select>
+                    <div class="motivoAfastamento">
+                        <app-custom-multiple-select class="custom-select" [bordered]="true"
+                            [options]="motivoAfastamentoOptions" [label]="'Motivo'" [type]="'SELECT'"
+                            (selectOptionEmitter)="updateForm($event)">
+                        </app-custom-multiple-select>
                     </div>
-                </div>
                 <div class="button-add">
                     <img class="icon-margin" src="../../../../assets/icons/plus.svg" alt="">
                     <span>Incluir</span>
                 </div>
             </div>
-            <table>
+            <table style="margin-top: 48px">
                 <tr>
                     <th class="d-flex align-items-center">
                         <div>Início afastamento</div>

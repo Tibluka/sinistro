@@ -148,7 +148,9 @@ main {
             height: 20px;
         }
 
-        .aposentado, .afastado {
+        .aposentado,
+        .afastado,
+        .motivoAposentadoria {
             display: flex;
             align-items: center;
             justify-content: start;
@@ -176,15 +178,19 @@ main {
                 }
             }
 
-            .motivoAfastamento, .motivoAposentadoria, .tempoServico {
+            .motivoAfastamento,
+            .motivoDaAposentadoria,
+            .tempoServico {
                 min-width: 285px;
             }
-            .fimAfastamento, .inicioAfastamento, .aposentadoDesde {
+
+            .fimAfastamento,
+            .inicioAfastamento,
+            .aposentadoDesde {
                 min-width: 185px;
             }
         }
     }
-
 
     input[type=checkbox] {
         margin: 0 16px 0 0;

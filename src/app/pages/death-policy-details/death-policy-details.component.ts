@@ -25,6 +25,8 @@ export class DeathPolicyDetailsComponent {
     tipoConta: new FormControl('', Validators.required),
     inicioAfastamento: new FormControl('', Validators.required),
     fimAfastamento: new FormControl('', Validators.required),
+    sinistradoAposentado: new FormControl(false),
+    sinistradoAfastado: new FormControl(false),
     motivoAposentadoria: new FormControl('', Validators.required),
     motivoAfastamento: new FormControl('', Validators.required),
     aposentadoDesde: new FormControl('', Validators.required),
@@ -32,8 +34,15 @@ export class DeathPolicyDetailsComponent {
 
   })
 
-  options = [new CustomOption(false, 'Acidente', 'acidente' , '')];
-
+  tempoServicoOptions: Array<CustomOption> = [
+    new CustomOption(false, '35 anos', '35', 'tempoServico'),
+  ];
+  motivoAposentadoriaOptions: Array<CustomOption> = [
+    new CustomOption(false, 'Tempo de serviço', 'tempo', 'motivoAposentadoria'),
+  ];
+  motivoAfastamentoOptions: Array<CustomOption> = [
+    new CustomOption(false, 'Acidente', 'acidente', 'motivoAfastamento'),
+  ];
 
   constructor(private router: Router,
     private modalService: ModalService) { }
@@ -60,8 +69,7 @@ export class DeathPolicyDetailsComponent {
     this.router.navigate(['/declaration-heirs'])
   }
 
-  optionSelected(customOption: CustomOption) {
-    console.log(customOption);
-
+  updateForm(customOption: CustomOption) {
+    this.deathForm.get(customOption.formControlName).setValue(customOption.value);
   }
 }
