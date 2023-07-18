@@ -8,18 +8,17 @@ main {
             margin-bottom: 0;
         }
 
-        .type,
-        button {
-            width: 33%;
-        }
-        .form-item {
-            width: 66%;
+        .term-search {
+            min-width: 285px;
             margin-right: 20px;
         }
+
         .type {
+            min-width: 183px;
             margin-right: 20px;
         }
     }
+
     .header {
         margin-bottom: 32px;
         display: flex;
@@ -30,7 +29,7 @@ main {
             margin-bottom: 16px;
 
             h1 {
-                margin: 0 0 16px 0;
+                margin: 0 0 8px 0;
             }
 
             .description {
@@ -54,5 +53,32 @@ main {
     img {
         width: 20px;
         height: 20px;
+    }
+
+    .no-results {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            margin: 100px 0 32px 0;
+            width: 112px;
+            height: 112px;
+        }
+
+        .title {
+            color: var(--body, #747474);
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 28px;
+        }
+
+        .subtitle {
+            color: var(--body, #747474);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 44px;
+        }
     }
 }

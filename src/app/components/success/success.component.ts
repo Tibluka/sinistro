@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { ModalService } from 'src/app/services/modal.service';
 })
 export class SuccessComponent {
 
-  constructor(private modalService: ModalService) { }
+  constructor(private modalService: ModalService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -16,5 +18,8 @@ export class SuccessComponent {
 
   close() {
     this.modalService.close(true);
+    this.router.navigate(['/opening'])
   }
+
+
 }

@@ -23,34 +23,65 @@ export class Step1Component {
     conta: new FormControl('', Validators.required),
     tipoConta: new FormControl('', Validators.required),
     cep: new FormControl('', Validators.required),
+    cidade: new FormControl('', Validators.required),
     endereco: new FormControl('', Validators.required),
     bairro: new FormControl('', Validators.required),
-    complemento: new FormControl('', Validators.required),
+    complemento: new FormControl(''),
     numero: new FormControl(null, Validators.required),
   })
-  
+
   step: number = 1;
 
-  uf = [new CustomOption(false, 'SP', 'sp', '')];
-  cidade = [new CustomOption(false, 'São José do Rio Preto' , 'sjrp', '')];
+
+  ufOptions: Array<CustomOption> = [
+    new CustomOption(false, 'SP', 'sp', 'uf'),
+  ];
+  cidadeOptions: Array<CustomOption> = [
+    new CustomOption(false, 'São José do Rio Preto', 'sp', 'cidade'),
+  ];
+  bancoOptions: Array<CustomOption> = [
+    new CustomOption(false, '077 - Inter', 'inter', 'banco'),
+  ];
+  tipoContaOptions: Array<CustomOption> = [
+    new CustomOption(false, 'Conta Corrente', 'inter', 'tipoConta'),
+  ];
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.getEnderecoComercial();
   }
 
   next() {
-    this.nextEmitter.emit();
+    if (this.acidenteForm.invalid) {
+      alert('Formulário inválido.')
+    } else this.nextEmitter.emit();
+  }
+
+  getEnderecoComercial() {
+    if(this.acidenteForm.get('possuiEnderecoComercial').value == false) {
+      this.acidenteForm.get('cep').disable();      
+      this.acidenteForm.get('cidade').disable();
+      this.acidenteForm.get('endereco').disable();
+      this.acidenteForm.get('bairro').disable();
+      this.acidenteForm.get('complemento').disable();
+      this.acidenteForm.get('numero').disable();
+    } else {
+      this.acidenteForm.get('cep').enable();      
+      this.acidenteForm.get('cidade').enable();
+      this.acidenteForm.get('endereco').enable();
+      this.acidenteForm.get('bairro').enable();
+      this.acidenteForm.get('complemento').enable();
+      this.acidenteForm.get('numero').enable();
+    }
   }
 
   cancel() {
     this.router.navigate(['opening'])
   }
 
-  
-  optionSelected(customOption: CustomOption) {
-    console.log(customOption);
-
+  updateForm(customOption: CustomOption) {
+    this.acidenteForm.get(customOption.formControlName).setValue(customOption.value);
   }
 
 }

@@ -125,87 +125,84 @@
         <div class="check-boxes">
             <div class="checkbox">
                 <label>
-                    <input class="checkbox-lg" type="checkbox">
+                    <input class="checkbox-lg" value="true" (change)="getSinistradoAposentado()" formControlName="sinistradoAposentado" type="checkbox">
                     Sinistrado aposentado.
                 </label>
             </div>
-            <div class="aposentado">
-                <div class="form-item bordered motivoAposentadoria label-active">
-                    <label for="motivoAposentadoria">Motivo da aposentadoria</label>
-                    <select formControlName="motivoAposentadoria" id="">
-                        <option value="">Tempo de serviço</option>
-                    </select>
+            <div *ngIf="deathForm.get('sinistradoAposentado').value == true" class="motivoAposentadoria">
+                <div class="motivoDaAposentadoria">
+                    <app-custom-multiple-select class="custom-select" [bordered]="true"
+                        [options]="motivoAposentadoriaOptions" [label]="'Motivo da aposentadoria'" [type]="'SELECT'"
+                        (selectOptionEmitter)="updateForm($event)">
+                    </app-custom-multiple-select>
                 </div>
-                 <div class="form-item bordered aposentadoDesde label-active">
+                <div class="form-item bordered aposentadoDesde label-active">
                     <label for="aposentadoDesde">Aposentado desde</label>
                     <input type="date" formControlName="aposentadoDesde">
                 </div>
-                <div class="form-item bordered tempoServico label-active">
-                    <label for="tempoServico">Tempo de serviço</label>
-                    <select formControlName="tempoServico" id="">
-                        <option value="">35 anos</option>
-                    </select>
+                <div class="tempoServico">
+                    <app-custom-multiple-select class="custom-select" [bordered]="true" [options]="tempoServicoOptions"
+                        [label]="'Tempo de serviço'" [type]="'SELECT'" (selectOptionEmitter)="updateForm($event)">
+                    </app-custom-multiple-select>
                 </div>
             </div>
-   
+
 
             <div class="checkbox">
                 <label>
-                    <input class="checkbox-lg" type="checkbox">
+                    <input class="checkbox-lg" type="checkbox" (change)="getSinistradoAfastado()"  formControlName="sinistradoAfastado">
                     Sinistrado afastado nos últimos 3 anos?
                 </label>
             </div>
-            <div class="afastado">
-                <div class="form-item bordered inicioAfastamento label-active">
-                    <label for="inicioAfastamento">Início afastamento</label>
-                    <input type="date" formControlName="inicioAfastamento">
-                </div>
-                <div class="form-item bordered fimAfastamento label-active">
-                    <label for="fimAfastamento">Fim afastamento</label>
-                    <input type="date" formControlName="fimAfastamento">
-                </div>
-                <div>
-                    <!--  <app-custom-multiple-select class="custom-select" [options]="options" [type]="'SELECT'"
-                    [label]="'Motivo'" (selectOptionEmitter)="optionSelected($event)">
-                </app-custom-multiple-select> -->
-                    <div class="form-item bordered motivoAfastamento label-active">
-                        <label for="motivoAfastamento">Motivo</label>
-                        <select formControlName="motivoAfastamento" id="">
-                            <option value="">Acidente</option>
-                        </select>
+            <div  *ngIf="deathForm.get('sinistradoAfastado').value == true" >
+                <div class="afastado">
+                    <div class="form-item bordered inicioAfastamento label-active">
+                        <label for="inicioAfastamento">Início afastamento</label>
+                        <input type="date" formControlName="inicioAfastamento">
+                    </div>
+                    <div class="form-item bordered fimAfastamento label-active">
+                        <label for="fimAfastamento">Fim afastamento</label>
+                        <input type="date" formControlName="fimAfastamento">
+                    </div>
+                        <div class="motivoAfastamento">
+                            <app-custom-multiple-select class="custom-select" [bordered]="true"
+                                [options]="motivoAfastamentoOptions" [label]="'Motivo'" [type]="'SELECT'"
+                                (selectOptionEmitter)="updateForm($event)">
+                            </app-custom-multiple-select>
+                        </div>
+                    <div class="button-add">
+                        <img class="icon-margin" src="../../../../assets/icons/plus.svg" alt="">
+                        <span>Incluir</span>
                     </div>
                 </div>
-                <div class="button-add">
-                    <img class="icon-margin" src="../../../../assets/icons/plus.svg" alt="">
-                    <span>Incluir</span>
-                </div>
+                <table style="margin-top: 32px">
+                    <tr>
+                        <th class="d-flex align-items-center">
+                            <div>Início afastamento</div>
+                            <img class="img-icon" src="../../../assets/icons/arrow-down.svg" alt="">
+                        </th>
+                        <th class="d-flex align-items-center">
+                            <div>Fim afastamento</div>
+                            <img class="img-icon" src="../../../assets/icons/arrow-down.svg" alt="">
+                        </th>
+                        <th class="d-flex">Motivo</th>
+                        <th class="d-flex">Ações</th>
+                    </tr>
+                    <tr>
+                        <td>15/06/2022</td>
+                        <td>15/06/2022</td>
+                        <td>Lorem ipsum</td>
+                        <td><img src="../../../assets/icons/trash.svg" alt=""></td>
+                    </tr>
+                    <tr>
+                        <td>15/06/2022</td>
+                        <td>15/06/2022</td>
+                        <td>Lorem ipsum</td>
+                        <td><img src="../../../assets/icons/trash.svg" alt=""></td>
+                    </tr>
+                </table>
             </div>
-            <table>
-                <tr>
-                    <th class="d-flex align-items-center">
-                        <div>Início afastamento</div>
-                        <img class="img-icon" src="../../../assets/icons/arrow-down.svg" alt="">
-                    </th>
-                    <th class="d-flex align-items-center">
-                        <div>Fim afastamento</div>
-                        <img class="img-icon" src="../../../assets/icons/arrow-down.svg" alt="">
-                    </th>
-                    <th class="d-flex">Motivo</th>
-                    <th class="d-flex">Ações</th>
-                </tr>
-                <tr>
-                    <td>15/06/2022</td>
-                    <td>15/06/2022</td>
-                    <td>Lorem ipsum</td>
-                    <td><img src="../../../assets/icons/trash.svg" alt=""></td>
-                </tr>
-                <tr>
-                    <td>15/06/2022</td>
-                    <td>15/06/2022</td>
-                    <td>Lorem ipsum</td>
-                    <td><img src="../../../assets/icons/trash.svg" alt=""></td>
-                </tr>
-            </table>
+           
         </div>
 
         <div class="beneficiaries">

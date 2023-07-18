@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-step3',
@@ -13,7 +14,8 @@ export class Step3Component {
 
   step: number = 1;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private modalService: ModalService) { }
 
   ngOnInit(): void {
   }
@@ -28,5 +30,8 @@ export class Step3Component {
 
   cancel() {
     this.router.navigate(['opening'])
+  }
+
+  sendDocuments() {
   }
 }

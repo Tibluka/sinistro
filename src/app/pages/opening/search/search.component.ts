@@ -12,12 +12,14 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class SearchComponent {
 
   @Input() showResults: boolean = false;
+  @Input() occurrence: string = '';
 
   searchForm: FormGroup = new FormGroup({
     cpfCnpjCliente: new FormControl('', Validators.required),
     occurrence: new FormControl('', Validators.required),
     occurrenceType: new FormControl('', Validators.required),
-    occurrenceDate: new FormControl('', Validators.required)
+    occurrenceDate: new FormControl('', Validators.required),
+    quemFaleceu: new FormControl('', Validators.required)
   })
 
   ocurrenceOptions: Array<CustomOption> = [
@@ -29,12 +31,24 @@ export class SearchComponent {
   ];
   occurrenceTypeOptions: Array<CustomOption> = [
     new CustomOption(false, 'D.I.T. (Diárias por Incapacidade Temporaria)', 'dit_code', 'occurrenceType'),
+  ];
+  quemFaleceuOptions: Array<CustomOption> = [
+    new CustomOption(false, 'Segurado(a) principal)', 'dit_code', 'quemFaleceu'),
   ]
 
   constructor(private modalService: ModalService) { }
 
   ngOnInit(): void { }
 
+  getOccurrenceOptions() {
+    if (this.searchForm.get('occurrence').value == 'morte' || this.searchForm.get('occurrence').value == 'morte_acidental') {
+      this.searchForm.get('occurrenceType').disable();
+      this.searchForm.get('quemFaleceu').enable();
+    } else {
+      this.searchForm.get('occurrenceType').enable();
+      this.searchForm.get('quemFaleceu').disable();
+    }
+  }
   openDocuments() {
     this.modalService.open(DocumentsComponent, {
       content: {
@@ -45,11 +59,16 @@ export class SearchComponent {
 
   search() {
     if (this.searchForm.invalid) {
-      alert('Forulario invalido')
-    } else this.showResults = true;
+      alert('Formulário inválido.')
+    } else {
+      this.showResults = true;
+      this.occurrence = this.searchForm.get('occurrence').value;
+    }
   }
 
   updateForm(customOption: CustomOption) {
     this.searchForm.get(customOption.formControlName).setValue(customOption.value);
+    this.getOccurrenceOptions();
+
   }
 }
