@@ -1,32 +1,73 @@
 <main>
-    <table *ngIf="pendingDocuments.length > 0">
-        <tr>
-            <th class="d-flex" style="width: 60%;">Nome do documento</th>
-            <th class="d-flex" style="width: 20%;">Solicitado em</th>
-            <th class="d-flex" style="width: 20%;"> Ações</th>
-        </tr>
-        <tr>
-            <td style="width: 60%;">
-                <div class="subtitle">Comprovante de residência em nome do assegurado</div>
-                <div>Nenhum arquivo anexado</div>
-            </td>
-            <td style="width: 20%;"> 22/01/2020 </td>
-            <td style="width: 20%; display: flex;align-items: center;">
-                <img class="img-icon-r" src="../../../../../assets/icons/upload-document.svg" alt="">
-                <div class="search">Anexar</div>
-            </td>
-        </tr>
-
-    </table>
-
-    <div class="footer">
-        <div class="buttons">
-            <button class="secondary-btn no-border">
-                Cancelar
-            </button>
-            <button class="primary-btn">
-                Enviar documentos
-            </button>
+    <div *ngIf="pendingDocuments.length > 0">
+        <table >
+            <tr>
+                <th class="d-flex" style="width: 60%;">Nome do documento</th>
+                <th class="d-flex" style="width: 20%;">Solicitado em</th>
+                <th class="d-flex" style="width: 20%;"> Ações</th>
+            </tr>
+            <tr>
+                <td style="width: 60%;">
+                    <div class="subtitle">Comprovante de residência em nome do assegurado</div>
+                    <div class="no-file">Nenhum arquivo anexado</div>
+                </td>
+                <td  class="subtitle" style="width: 20%;"> 22/01/2020 </td>
+                <td style="width: 20%; display: flex;align-items: center;">
+                    <img class="img-icon-r" src="../../../../../assets/icons/upload-document.svg" alt="">
+                    <div class="search">Anexar</div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 60%;">
+                    <div class="subtitle">Cópia do primeiro atendimento médico realizado junto a clínica ou hospital</div>
+                    <div class="no-file">Nenhum arquivo anexado</div>
+                </td>
+                <td  class="subtitle" style="width: 20%;"> 22/01/2020 </td>
+                <td style="width: 20%; display: flex;align-items: center;">
+                    <img class="img-icon-r" src="../../../../../assets/icons/upload-document.svg" alt="">
+                    <div class="search">Anexar</div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 60%;">
+                    <div class="subtitle">Boletim de ocorrência (se houver)</div>
+                    <div class="no-file">Nenhum arquivo anexado</div>
+                </td>
+                <td  class="subtitle" style="width: 20%;"> 22/01/2020 </td>
+                <td style="width: 20%; display: flex;align-items: center;">
+                    <img class="img-icon-r" src="../../../../../assets/icons/upload-document.svg" alt="">
+                    <div class="search">Anexar</div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 60%;">
+                    <div class="subtitle">Exames realizados que auxiliaram o diagnóstico</div>
+                    <div class="no-file">Nenhum arquivo anexado</div>
+                </td>
+                <td  class="subtitle" style="width: 20%;"> 22/01/2020 </td>
+                <td style="width: 20%; display: flex;align-items: center;">
+                    <img class="img-icon-r" src="../../../../../assets/icons/upload-document.svg" alt="">
+                    <div class="search">Anexar</div>
+                </td>
+            </tr>
+        </table>
+        <div class="footer">
+            <div class="buttons">
+                <button class="secondary-btn no-border">
+                    Cancelar
+                </button>
+                <button (click)="sendDocuments()" class="primary-btn">
+                    Enviar documentos
+                </button>
+            </div>
         </div>
     </div>
+ 
+    <div class="no-results" *ngIf="pendingDocuments.length == 0">
+        <img src="../../../../assets/icons/document.svg" alt="">
+        <div class="title">Nenhum documento pendente</div>
+        <div class="subtitle">Este sinistro não possui nenhum documento pendente para envio.</div>
+    </div>
+
+   
 </main>

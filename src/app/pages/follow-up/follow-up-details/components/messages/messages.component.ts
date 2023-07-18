@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageSuccessComponent } from 'src/app/components/message-success/message-success.component';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-messages',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessagesComponent implements OnInit {
 
-  constructor() { }
+  assunto: string = '';
+  mensagem: string = '';
+  showNewMessage: boolean = false;
+
+  constructor(private modalService: ModalService) { }
 
   ngOnInit(): void {
   }
 
+  close() {
+    this.modalService.close(true);
+  }
+
+  back() {
+    this.showNewMessage = false;
+  }
+
+  newMessage() {
+    this.showNewMessage = true;
+  }
+
+  sendMessage() {
+    this.modalService.open(MessageSuccessComponent)
+  }
 }

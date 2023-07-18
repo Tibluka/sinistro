@@ -1,0 +1,51 @@
+main {
+    h1 {
+        margin: 0 0 44px 0;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 36px;
+        letter-spacing: 0.48px;
+    }
+
+    .close {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 32px;
+
+        img {
+            padding: 16px 0;
+        }
+    }
+
+    .item {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-top: 4px;
+
+        .title-icon {
+            display: flex;
+
+            .clock-line {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-right: 16px;
+                align-items: center;
+
+                .line {
+                    margin-top: 4px;
+                }
+            }
+        }
+
+        .title,
+        .date {
+            color: var(--neutras-black-100, #000);
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+        }
+    }
+}

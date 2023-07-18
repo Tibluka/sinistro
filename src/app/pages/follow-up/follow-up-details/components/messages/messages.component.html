@@ -1,8 +1,11 @@
 <main>
-    <div class="messages">
+         <div *ngIf="!showNewMessage" class="messages">
+        <div class="close">
+            <img (click)="close()" src="../../../assets/icons/close.svg" alt="">
+        </div>
         <h1>Mensagens</h1>
 
-        <button class="secondary-btn">
+        <button (click)="newMessage()" class="secondary-btn">
             <img src="../../../../../../assets/icons/add.svg" alt="">
             Nova mensagem
         </button>
@@ -17,14 +20,45 @@
                 <th class="d-flex" style="width: 20%;">Ações</th>
             </tr>
             <tr>
-                <td style="width: 20%;">12/06/1993</td>
+                <td style="width: 20%;">15/06/2022</td>
                 <td style="width: 60%;">Solicitação de documento</td>
                 <td style="width: 20%; display: flex;align-items: center;">
                     <img class="img-icon-r" src="../../../../../../assets/icons/search.svg" alt="">
                     <div class="search">Ver</div>
                 </td>
             </tr>
-
+            <tr>
+                <td style="width: 20%;">15/06/2022</td>
+                <td style="width: 60%;">Lorem Ipsum</td>
+                <td style="width: 20%; display: flex;align-items: center;">
+                    <img class="img-icon-r" src="../../../../../../assets/icons/search.svg" alt="">
+                    <div class="search">Ver</div>
+                </td>
+            </tr>
         </table>
+    </div>
+
+    <div *ngIf="showNewMessage" class="new-message">
+        <div class="back">
+            <img (click)="back()" src="../../../assets/icons/back.svg" alt="">
+        </div>
+        <h1>Nova mensagem</h1>
+
+        <div class="form-item bordered term-search" [ngClass]="{'label-active': assunto}">
+            <label for="assunto">Assunto</label>
+            <input type="text" [(ngModel)]="assunto" name="assunto">
+        </div>
+
+        <div class="text-area">
+            <div class="form-item bordered-text-area mensagem"
+                [ngClass]="{'label-active-text-area': mensagem}">
+                <label for="mensagem">Mensagem</label>
+                <textarea  [(ngModel)]="mensagem" id="" cols="30" rows="10"></textarea>
+            </div>
+        </div>
+
+        <div class="button-large">
+            <button (click)="sendMessage()" class="primary-btn"> Enviar</button>
+        </div>
     </div>
 </main>

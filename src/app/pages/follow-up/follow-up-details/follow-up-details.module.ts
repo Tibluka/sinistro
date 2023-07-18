@@ -6,6 +6,7 @@ import { IncidentDetailsComponent } from './incident-details/incident-details.co
 import { PendingDocumentsComponent } from './pending-documents/pending-documents.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { HistoryComponent } from './components/history/history.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -19,6 +20,7 @@ import { HistoryComponent } from './components/history/history.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule.forChild([
       { path: '', component: FollowUpDetailsComponent }
     ])

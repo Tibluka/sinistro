@@ -8,13 +8,17 @@ import { RegisterBeneficiaryComponent } from './components/register-beneficiary/
 import { FormsModule } from '@angular/forms';
 import { CustomMultipleSelectModule } from './components/custom-multiple-select/custom-multiple-select.module';
 import { SuccessComponent } from './components/success/success.component';
+import { MessageSuccessComponent } from './components/message-success/message-success.component';
+import { DocumentsSuccessComponent } from './components/documents-success/documents-success.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SendDocumentsDeathComponent,
     RegisterBeneficiaryComponent,
-    SuccessComponent
+    SuccessComponent,
+    MessageSuccessComponent,
+    DocumentsSuccessComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 main {
     h1 {
-        margin: 16px 0 32px 0;
+        margin: 0 0 44px 0;
         font-size: 32px;
         font-style: normal;
         font-weight: 500;
@@ -9,11 +9,41 @@ main {
     }
 
     .messages {
+        .close {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 32px;
+            img {
+                padding: 16px 0;
+            }
+        }
         .secondary-btn {
             img {
                 margin-right: 8px;
             }
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
+    }
+
+    .new-message {
+        .back {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 32px;
+            cursor: pointer;
+            img {
+                padding: 16px 0;
+            }
+        }
+        .form-item {
+            margin-bottom: 24px;
+        }
+        .button-large, .text-area {
+            width: 100%;
+            textarea, button {
+                width: 100%;
+            }
+        }
+        
     }
 }
