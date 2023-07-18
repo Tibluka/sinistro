@@ -1,0 +1,17 @@
+<main>
+    <div class="close">
+        <img (click)="close()" src="../../../assets/icons/close.svg" alt="">
+    </div>
+    <h1>Nova resposta</h1>
+
+    <div class="text-area">
+        <div class="form-item bordered-text-area mensagem" [ngClass]="{'label-active-text-area': mensagem}">
+            <label for="mensagem">Mensagem</label>
+            <textarea [(ngModel)]="mensagem" id="" cols="30" rows="10"></textarea>
+        </div>
+    </div>
+
+    <div class="button-large">
+        <button (click)="sendMessage()" class="primary-btn"> Enviar</button>
+    </div>
+</main>

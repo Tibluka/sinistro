@@ -1,0 +1,29 @@
+main {
+    h1 {
+        margin: 0 0 44px 0;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 36px; /* 112.5% */
+        letter-spacing: 0.48px;
+    }
+    .close {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 32px;
+        cursor: pointer;
+        img {
+            padding: 16px 0;
+        }
+    }
+    .form-item {
+        margin-bottom: 24px;
+    }
+    .button-large, .text-area {
+        width: 100%;
+        textarea, button {
+            width: 100%;
+        }
+    }
+    
+}

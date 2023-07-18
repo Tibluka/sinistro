@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MessageSuccessComponent } from 'src/app/components/message-success/message-success.component';
 import { ModalService } from 'src/app/services/modal.service';
 
@@ -13,7 +14,8 @@ export class MessagesComponent implements OnInit {
   mensagem: string = '';
   showNewMessage: boolean = false;
 
-  constructor(private modalService: ModalService) { }
+  constructor(private modalService: ModalService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -32,5 +34,10 @@ export class MessagesComponent implements OnInit {
 
   sendMessage() {
     this.modalService.open(MessageSuccessComponent)
+  }
+
+  openMessages() {
+    this.modalService.close(true);
+    this.router.navigate(['/follow-up/follow-up-message-details'])
   }
 }
