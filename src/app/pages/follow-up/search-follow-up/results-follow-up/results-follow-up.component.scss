@@ -25,7 +25,9 @@ main {
     .img-icon {
         margin-left: 4px;
     }
-
+    .img-icon-r {
+        margin-right: 4px;
+    }
     .d-flex {
         display: flex;
     }
@@ -43,7 +45,7 @@ main {
         font-size: 14px;
         font-style: normal;
         font-weight: 700;
-        width: fit-content;
+        width: 117px;
         &.paid {
             background: var(--paleta-estendida-green-green-30, #c0f0d3);
             color: var(--paleta-estendida-green-green-100, #034d2e);

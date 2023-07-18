@@ -20,16 +20,22 @@
             </app-custom-multiple-select>
         </div>
 
-        <div class="form-item bordered" [ngClass]="{'label-active': cpfCnpjCliente}">
+        <div class="form-item bordered term-search" [ngClass]="{'label-active': cpfCnpjCliente}">
             <label for="cpfCnpj">CPF do assegurado</label>
             <input type="text" [(ngModel)]="cpfCnpjCliente" name="cpfCnpj">
         </div>
 
-        <button class="primary-btn">Pesquisar</button>
+        <button (click)="search()" class="primary-btn">Pesquisar</button>
     </div>
 
     <!-- Results -->
-    <app-results-follow-up></app-results-follow-up>
+    <app-results-follow-up [showResults]="showResults" *ngIf="showResults"></app-results-follow-up>
+
+    <div class="no-results">
+        <img src="../../../../assets/icons/lupa.svg" alt="">
+        <div class="title">Nenhum resultado por aqui</div>
+        <div class="subtitle">Utilize a pesquisa para exibir os resultados</div>
+    </div>
 
 
 

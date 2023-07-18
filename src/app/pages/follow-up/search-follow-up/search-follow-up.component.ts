@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CustomOption } from 'src/app/models/customOption';
 
 @Component({
@@ -7,6 +7,8 @@ import { CustomOption } from 'src/app/models/customOption';
   styleUrls: ['./search-follow-up.component.scss']
 })
 export class SearchFollowUpComponent implements OnInit {
+
+  @Input() showResults: boolean = false;
 
   searchTypes = [
     new CustomOption(false, 'CPF', 'cpf', ''),
@@ -23,6 +25,10 @@ export class SearchFollowUpComponent implements OnInit {
 
   optionSelected(customOption: CustomOption) {
 
+  }
+
+  search() {
+    this.showResults = true;
   }
 
 }
